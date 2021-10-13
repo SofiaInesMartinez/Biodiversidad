@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Oswald:400|Raleway:400,700,400italic,700italic);
+body {
+    background-color: #25532e;
+    color: #e5e5e5;
+    font: 16px 'Raleway', sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    font-size: 4vw;
+    text-shadow: #14742875 4px -5px 2px;
+}
+
+#home {
+    background-image: url(../images/0.jpg);
+    padding: 1% 0;
+    margin: 2vh 0;
+}
+
+#content {
+    margin: 2vh 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+a {
+    color: #a2ed56;
+    text-decoration: none;
+}
+
+div h3 {
+    size: 2rem;
+    margin: 0;
+}
+
+a:hover {
+    color: #83e4e2;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-btn {
+    justify-content: flex-start;
+}
+
+.nav-user {
+    justify-content: flex-end;
+}
+
+.btn {
+    border-radius: 5%;
+    border: 3px solid #a2ed56;
+    width: 10%;
+    background-color: #a1ed563d;
+    margin: 3%;
+}
+
+section {
+    margin: 5vh;
+}
+
+.td-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 3vw;
+    ;
+}
+
+footer {
+    justify-content: center;
+    padding-top: 30px;
+    bottom: 0;
+}
+
+.hide {
+    display: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+table thead {
+    border-bottom: 2px solid #e5e5e5;
+}
+
+table th,
+table td {
+    padding: 1em 0.5em;
+    position: relative;
+}
+
+table th {
+    font: 400 1.25em 'Oswald', sans-serif;
+    letter-spacing: 0.025em;
+    outline: none;
+    text-transform: uppercase;
+}
+
+table tbody>tr {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+img {
+    margin: 5%;
+    border-radius: 10%;
+}
+
+div img {
+    border-radius: 50%;
+    width: 50%;
+    height: auto;
+}
+
+figure img {
+    width: 50vw;
+    height: auto;
+    margin: 5vh 0;
+}
+
+figure p {
+    padding: 1vh 20vw;
+    font-size: 1.3rem;
+    text-align: justify;
+}
+
+#content {
+    display: flex;
+}
+
+.btn-container {
+    width: 40vw;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+div {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+figure div {
+    flex-direction: column;
+    align-items: center;
+}
+
+input,
+select,
+textarea,
+button {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    padding: 10px;
+    border: 3px solid #a2ed56;
+}
+
+nav a {
+    padding: 3px;
+    margin: 25px 10px;
+}
+
+#arbol1 {
+    grid-area: arbol1;
+}
+
+#arbol2 {
+    grid-area: arbol2;
+}
+
+.ABMForm {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+}
+
+div.formHome img {
+    width: 50%;
+    height: 70%;
+    margin: 0%;
+    display: block;
+    margin: auto;
+}
+
+.formHome {
+    display: grid;
+    grid-template-areas: "arbol1 form arbol2";
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.formHome input,
+.formHome select,
+.formHome textarea {
+    margin: 10px;
+    padding: 2%;
+}
+
+div ul {
+    display: flex;
+    list-style: none;
+}
+
+.formUser {
+    flex-direction: column;
+    background-color: beige;
+    border: 6px solid #304d14;
+    text-align: center;
+    width: 25%;
+    align-self: center;
+    border-radius: 5%;
+    margin: 0 auto;
+}
+
+.formUser form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formUser form input,
+.formUser a {
+    margin: 35px;
+}
+
+a,
+input[type=submit] {
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+}
+
+.result {
+    color: black;
+}
+
+.error,
+.result {
+    font-weight: 200;
+}
+
+.pages {
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.pages a {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.background {
+    background-image: url(../images/fondo.jpg);
+    background-size: cover;
+}
