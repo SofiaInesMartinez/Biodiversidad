@@ -22,7 +22,7 @@ class ProtectedAreasController
         $results_per_page = 10;
         $number_of_results = $this->model->getTotal();
         $number_of_pages = ceil($number_of_results / $results_per_page);
-        if (!isset($_GET['page'])) {
+        if (!isset($_GET['page'])||($_GET['page'] =='')) {
             $page = 1;
         } else {
             $page = $_GET['page'];

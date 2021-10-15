@@ -24,7 +24,7 @@ class SpeciesController
         $results_per_page = 10; //variable de cant de resultados deseados por pagina (limite)
         $number_of_results = $this->model->getTotal(); //obtiene cantidad de la tabla
         $number_of_pages = ceil($number_of_results / $results_per_page); //calcula cant de paginas existenes, ceil devuelve la division redondeada
-        if (!isset($_GET['page'])) { //si no se especifica pagina se muestra la primera
+        if (!isset($_GET['page'])||($_GET['page'] =='')) { //si no se especifica pagina se muestra la primera
             $page = 1;
         } else {
             $page = $_GET['page'];
