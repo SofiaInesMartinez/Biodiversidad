@@ -2,10 +2,12 @@
 require_once './Models/SpeciesModel.php';
 require_once './Views/SpeciesView.php';
 require_once './Helpers/AuthHelper.php';
+require_once './Models/ProtectedAreasModel.php';
 
 class SpeciesController
 {
     private $model;
+    private $modelArea;
     private $view;
     private $authHelper;
 
@@ -14,6 +16,7 @@ class SpeciesController
         $this->model = new SpeciesModel();
         $this->view = new SpeciesView();
         $this->authHelper = new AuthHelper();
+        $this->modelArea = new ProtectedAreasModel();
     }
 
     function showPaginationSpecies()
@@ -28,7 +31,7 @@ class SpeciesController
         }
         $this_page_first_result = ($page - 1) * $results_per_page; //obtiene inicio de la porcion de la tabla requerida
         $species = $this->model->getSpeciesByLimit($this_page_first_result, $results_per_page);
-        $areas = $this->model->selectAreas();
+        $areas = $this->modelArea->getProtectedAreas();
         $adm = $this->authHelper->checkUser();
         $this->view->renderSpecies($species, $areas, $number_of_pages, $adm);
     }
@@ -68,7 +71,7 @@ class SpeciesController
     {
         $this->authHelper->checkLoggedIn();
         $specie = $this->model->getSingleSpecies($id);
-        $areas = $this->model->selectAreas();
+        $areas = $this->modelArea->getProtectedAreas();
         $this->view->getSingleSpecies($specie, $areas);
         
     }
@@ -77,13 +80,13 @@ class SpeciesController
     {
         $this->authHelper->checkLoggedIn();
         try {
-            $nombre_cientifico = $_REQUEST["nombre_cientifico"];
-            $nombre_comun = $_REQUEST["nombre_comun"];
-            $descripcion = $_REQUEST["descripcion"];
-            $estado_conservacion = $_REQUEST["estado_conservacion"];
-            $id_parque = $_REQUEST["id_parque"];
+            $nombre_cientifico = $_POST["nombre_cientifico"];
+            $nombre_comun = $_POST["nombre_comun"];
+            $descripcion = $_POST["descripcion"];
+            $estado_conservacion = $_POST["estado_conservacion"];
+            $id_parque = $_POST["id_parque"];
             $img = $_POST["img"];
-            $id_especie = $_REQUEST["id_especie"];
+            $id_especie = $_POST["id_especie"];
             $this->model->updateSpecies($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img, $id_especie);
             header("Location: " . BASE_URL . "listaEspecies");
         } catch (\Throwable $th) {

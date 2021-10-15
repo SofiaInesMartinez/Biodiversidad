@@ -9,16 +9,16 @@ class ProtectedAreasModel
     }
     function getTotal()
     {
-        $con = mysqli_connect('localhost', 'root', '');
-        mysqli_select_db($con, 'biodiversidad');
-        $sql = "SELECT * FROM parquenacional  ORDER BY region, nombre";
-        $result = mysqli_query($con, $sql);
-        $number_of_results = mysqli_num_rows($result);
-        return $number_of_results;
+        $query = $this->db->prepare('SELECT *, COUNT(*) AS total FROM parquenacional');
+        $query->execute();
+        $count = $query->fetch(PDO::FETCH_OBJ);
+        return $count->total;
     }
+    
     function getAreasByLimit($this_page_first_result, $results_per_page)
     {
-        $query = $this->db->prepare("SELECT * FROM parquenacional ORDER BY region, nombre LIMIT " . $this_page_first_result . "," .  $results_per_page);
+        $query = $this->db->prepare("SELECT * FROM parquenacional ORDER BY region, nombre
+        LIMIT " . $this_page_first_result . "," .  $results_per_page);
         $query->execute();
         $species = $query->fetchAll(PDO::FETCH_OBJ);
         return $species;

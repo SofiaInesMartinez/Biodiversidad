@@ -92,13 +92,13 @@ class ProtectedAreasController
     {
         $this->authHelper->checkLoggedIn();
         try {
-            $nombre = $_REQUEST["nombre"];
-            $region = $_REQUEST["region"];
-            $ubicacion = $_REQUEST["ubicacion"];
-            $anio_creacion = $_REQUEST["anio_creacion"];
-            $superficie = $_REQUEST["superficie"];
+            $nombre = $_POST["nombre"];
+            $region = $_POST["region"];
+            $ubicacion = $_POST["ubicacion"];
+            $anio_creacion = $_POST["anio_creacion"];
+            $superficie = $_POST["superficie"];
             $img = $_POST["img"];
-            $id_PN = $_REQUEST["id_PN"];
+            $id_PN = $_POST["id_PN"];
             $this->model->updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img, $id_PN);
             header("Location: " . BASE_URL . "listaParques");
         } catch (\Throwable $th) {
