@@ -46,7 +46,12 @@ class SpeciesController
     function addSpecies()
     {
         $this->authHelper->checkLoggedIn();
-        try {
+        if (
+            isset($_POST['nombre_cientifico']) && isset($_POST['nombre_comun']) && isset($_POST['descripcion'])
+            && isset($_POST['estado_conservacion']) && isset($_POST['id_parque']) && ($_POST['nombre_cientifico'] != '')
+            && ($_POST['nombre_comun'] != '') && ($_POST['descripcion'] != '') && ($_POST['estado_conservacion'] != '')
+            && ($_POST['id_parque'] != '')
+        ) {
             $nombre_cientifico = $_POST["nombre_cientifico"];
             $nombre_comun = $_POST["nombre_comun"];
             $descripcion = $_POST["descripcion"];
@@ -55,9 +60,9 @@ class SpeciesController
             $img = $_POST["img"];
             $this->model->addSpecies($nombre_cientifico, $nombre_comun, $descripcion,  $estado_conservacion, $id_parque, $img);
             header("Location: " . BASE_URL . "listaEspecies");
-        } catch (\Throwable $th) {
-            $this->view->renderError("La especie ya existe");
         }
+        //$this->view->renderError("La especie ya existe"); //Para este control dijo que es mejor un get especie
+
     }
 
     function showSingleSpecies($id)
@@ -73,13 +78,17 @@ class SpeciesController
         $specie = $this->model->getSingleSpecies($id);
         $areas = $this->modelArea->getProtectedAreas();
         $this->view->getSingleSpecies($specie, $areas);
-        
     }
 
     function updateSpecies()
     {
         $this->authHelper->checkLoggedIn();
-        try {
+        if (
+            isset($_POST['nombre_cientifico']) && isset($_POST['nombre_comun']) && isset($_POST['descripcion'])
+            && isset($_POST['estado_conservacion']) && isset($_POST['id_parque']) && ($_POST['nombre_cientifico'] != '')
+            && ($_POST['nombre_comun'] != '') && ($_POST['descripcion'] != '') && ($_POST['estado_conservacion'] != '')
+            && ($_POST['id_parque'] != '')
+        ) {
             $nombre_cientifico = $_POST["nombre_cientifico"];
             $nombre_comun = $_POST["nombre_comun"];
             $descripcion = $_POST["descripcion"];
@@ -89,9 +98,8 @@ class SpeciesController
             $id_especie = $_POST["id_especie"];
             $this->model->updateSpecies($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img, $id_especie);
             header("Location: " . BASE_URL . "listaEspecies");
-        } catch (\Throwable $th) {
-            $this->view->renderError("La especie ya existe");
         }
+        //$this->view->renderError("La especie ya existe"); //Para este control dijo que es mejor un get especie
     }
 
     function renderError($msg)

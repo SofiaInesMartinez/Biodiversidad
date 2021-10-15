@@ -47,7 +47,12 @@ class ProtectedAreasController
     function addArea()
     {
         $this->authHelper->checkLoggedIn();
-        try {
+        if (
+            isset($_POST['nombre']) && isset($_POST['region']) && isset($_POST['ubicacion'])
+            && isset($_POST['anio_creacion']) && isset($_POST['superficie']) && ($_POST['nombre'] != '')
+            && ($_POST['region'] != '') && ($_POST['ubicacion'] != '') && ($_POST['anio_creacion'] != '')
+            && ($_POST['superficie'] != '')
+        ) {
             $nombre = $_POST["nombre"];
             $region = $_POST["region"];
             $ubicacion = $_POST["ubicacion"];
@@ -56,14 +61,13 @@ class ProtectedAreasController
             $img = $_POST["img"];
             $this->model->addArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img);
             header("Location: " . BASE_URL . "listaParques");
-        } catch (\Throwable $th) {
-            $this->view->renderError("El área protegida ya existe");
         }
+        //$this->view->renderError("El área protegida ya existe"); //Si dejamos, hacer chequeo con getArea
     }
 
     function showSingleArea()
     {
-        if (isset($_GET["id"])) {
+        if (isset($_GET["id"]) && ($_GET["id"] != '')) {
             $id = $_GET["id"];
             $area = $this->model->getSingleProtectedArea($id);
             $adm = $this->authHelper->checkUser();
@@ -91,7 +95,12 @@ class ProtectedAreasController
     function updateArea()
     {
         $this->authHelper->checkLoggedIn();
-        try {
+        if (
+            isset($_POST['nombre']) && isset($_POST['region']) && isset($_POST['ubicacion'])
+            && isset($_POST['anio_creacion']) && isset($_POST['superficie']) && ($_POST['nombre'] != '')
+            && ($_POST['region'] != '') && ($_POST['ubicacion'] != '') && ($_POST['anio_creacion'] != '')
+            && ($_POST['superficie'] != '')
+        ) {
             $nombre = $_POST["nombre"];
             $region = $_POST["region"];
             $ubicacion = $_POST["ubicacion"];
@@ -101,9 +110,8 @@ class ProtectedAreasController
             $id_PN = $_POST["id_PN"];
             $this->model->updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img, $id_PN);
             header("Location: " . BASE_URL . "listaParques");
-        } catch (\Throwable $th) {
-            $this->renderError("El área protegida ya existe");
         }
+        //$this->renderError("El área protegida ya existe");//Si dejamos, hacer chequeo con getArea
     }
 
 
