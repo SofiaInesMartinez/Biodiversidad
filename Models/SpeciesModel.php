@@ -10,10 +10,10 @@ class SpeciesModel
 
     function getTotal()
     {
-        $query = $this->db->prepare('SELECT *, COUNT(*) AS total FROM especie');
+        $query = $this->db->prepare('SELECT * FROM especie');
         $query->execute();
-        $count = $query->fetch(PDO::FETCH_OBJ);
-        return $count->total;
+        $count = $query->rowCount();
+        return $count;
     }
 
     function getSpeciesByLimit($this_page_first_result, $results_per_page)
