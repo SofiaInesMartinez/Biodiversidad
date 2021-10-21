@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2021 a las 23:19:19
+-- Tiempo de generación: 21-10-2021 a las 17:22:39
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -166,7 +166,7 @@ INSERT INTO `especie` (`id_especie`, `nombre_cientifico`, `nombre_comun`, `descr
 (143, 'Acanthistius patachonicus', '', 'Cuerpo fusiforme y robusto, pedúnculo caudal grueso y alto. Escamas relativamente pequeñas cubren todo el cuerpo y las bases carnosas de la dorsal blanda y de la anal. Línea lateral desde el ángulo superior del opérculo a lo largo de todo el cuerpo, siguiendo el perfil superior del mismo.\r\n\r\nCabeza grande, comprendida unas tres veces en la longitud total. Boca con leve prognatismo inferior cuyo extremo posterior no alcanza el nivel del borde posterior de los ojos. Narinas pequeñas, próximas a los ojos, que están contenidos unas cinco veces en la longitud de la cabeza. Preopérculos con el borde aserrado. El borde de los opérculos presenta tres espinas, sin crestas.\r\n\r\nUna sola aleta dorsal, que nace ligeramente por delante del borde posterior del opérculo, tiene dos porciones bien diferenciables: la anterior, con 12-13 radios espinosos conspicuos y la posterior, con radios blandos solamente. Caudal truncada. Aleta anal de base pequeña, se inicia con tres espinas. Las ventrales nacen por detrás de la base de las pectorales. Están constituidas por una espina y cinco radios blandos. Las pectorales se insertan debajo del borde postero-inferior de los opérculos, poseen radios blandos solamente y forma redondeada, como la porción blanda de la dorsal y la anal.\r\n\r\nColoración en mosaico de distintos tonos de gris; suelen ser evidentes bandas verticales más oscuras en los flancos. La coloración ventral es uniforme y de tonalidad más clara. Aletas gris oscuro uniforme.', 'Datos insuficientes', 69, 'http://mczbase.mcz.harvard.edu/specimen_images/fish/large/29066_Acanthistius_patagonicus_X.jpg   '),
 (144, 'Agelaioides badius', 'Greyish Baywing', '', 'Preocupación menor', 69, 'https://observation.org/photos/2790028.jpg'),
 (145, 'Amazonetta brasiliensis', 'Brazilian Teal', '', 'Preocupación menor', 69, 'https://observation.org/photos/15594919.jpg'),
-(147, 'Anser anser', 'Domesticated Goose', '', '', 69, 'https://observation.org/photos/2877755.jpg'),
+(147, 'Anser anser', 'Domesticated Goose', '', 'Vulnerable', 69, 'https://observation.org/photos/2877755.jpg'),
 (148, 'Anumbius annumbi', '', '', 'Preocupación menor', 69, 'http://arctos.database.museum/media/10577129?open'),
 (149, 'Aramides cajanea', 'Grey-necked Wood Rail', '', 'Preocupación menor', 69, 'https://observation.org/photos/15594949.jpg'),
 (150, 'Aramides ypecaha', 'Giant Wood Rail', '', 'Preocupación menor', 69, 'https://observation.org/photos/20194535.jpg'),
@@ -252,8 +252,7 @@ INSERT INTO `especie` (`id_especie`, `nombre_cientifico`, `nombre_comun`, `descr
 (237, 'Phalcoboenus albogularis', 'White-throated Caracara', '', 'Preocupación menor', 81, 'https://observation.org/photos/18031366.jpg'),
 (238, 'Phrygilus gayi', 'Grey-hooded Sierra Finch ssp caniceps', '', '', 81, 'https://observation.org/photos/18053548.jpg'),
 (239, 'Pygarrhichas albogularis', 'White-throated Treerunner', '', 'Preocupación menor', 81, 'https://observation.org/photos/8813584.jpg'),
-(240, 'Thalassarche melanophris', 'Black-browed Albatross', '', 'Preocupación menor', 81, 'https://observation.org/photos/12854805.jpg'),
-(249, 'a', 'jythjk', 'kjhk', 'ljhkl', 80, 'lkjhlj');
+(240, 'Thalassarche melanophris', 'Black-browed Albatross', '', 'Preocupación menor', 81, 'https://observation.org/photos/12854805.jpg');
 
 -- --------------------------------------------------------
 
@@ -317,7 +316,7 @@ INSERT INTO `parquenacional` (`id_PN`, `nombre`, `region`, `ubicacion`, `anio_cr
 (87, 'PN El Impenetrable', 'NEA', 'Chaco', 2014, 128000, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_el_impenetrable.png'),
 (88, 'PN Patagonia', 'PATAGONIA', 'Santa Cruz', 2015, 106424, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pimc_patagonia_austral.png'),
 (90, 'PN Iberá', 'NEA', 'Corrientes', 2018, 195094, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_ibera.png'),
-(91, 'PN Traslasierra', 'CENTRO', 'Cordoba', 2018, 44168, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_traslasierra.png');
+(91, 'PN Traslasierra', 'CENTRO', 'Cordoba', 2017, 44168, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_traslasierra.png');
 
 -- --------------------------------------------------------
 
@@ -355,7 +354,8 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `mail`, `clave`) VALUES
 --
 ALTER TABLE `especie`
   ADD PRIMARY KEY (`id_especie`),
-  ADD UNIQUE KEY `nombre_cientifico` (`nombre_cientifico`);
+  ADD UNIQUE KEY `nombre_cientifico` (`nombre_cientifico`),
+  ADD KEY `fk_especie_parquenacional` (`id_parque`);
 
 --
 -- Indices de la tabla `parquenacional`
@@ -379,19 +379,29 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `especie`
 --
 ALTER TABLE `especie`
-  MODIFY `id_especie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
+  MODIFY `id_especie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
 
 --
 -- AUTO_INCREMENT de la tabla `parquenacional`
 --
 ALTER TABLE `parquenacional`
-  MODIFY `id_PN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id_PN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `especie`
+--
+ALTER TABLE `especie`
+  ADD CONSTRAINT `fk_especie_parquenacional` FOREIGN KEY (`id_parque`) REFERENCES `parquenacional` (`id_PN`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
