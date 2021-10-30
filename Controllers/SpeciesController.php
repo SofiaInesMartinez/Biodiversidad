@@ -24,7 +24,7 @@ class SpeciesController
         $results_per_page = 10; //variable de cant de resultados deseados por pagina (limite)
         $number_of_results = $this->model->getTotal(); //obtiene cantidad de la tabla
         $number_of_pages = ceil($number_of_results / $results_per_page); //calcula cant de paginas existenes, ceil devuelve la division redondeada
-        if (!isset($_GET['page'])||($_GET['page'] =='')) { //si no se especifica pagina se muestra la primera
+        if (!isset($_GET['page']) || ($_GET['page'] == '')) { //si no se especifica pagina se muestra la primera
             $page = 1;
         } else {
             $page = $_GET['page'];
@@ -86,7 +86,6 @@ class SpeciesController
         if (
             isset($_POST['nombre_cientifico']) && isset($_POST['nombre_comun']) && isset($_POST['descripcion'])
             && isset($_POST['estado_conservacion']) && isset($_POST['id_parque']) && ($_POST['nombre_cientifico'] != '')
-            && ($_POST['nombre_comun'] != '') && ($_POST['descripcion'] != '') && ($_POST['estado_conservacion'] != '')
             && ($_POST['id_parque'] != '')
         ) {
             $nombre_cientifico = $_POST["nombre_cientifico"];
@@ -98,8 +97,7 @@ class SpeciesController
             $id_especie = $_POST["id_especie"];
             $this->model->updateSpecies($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img, $id_especie);
             header("Location: " . BASE_URL . "listaEspecies");
-        }
-        //$this->view->renderError("La especie ya existe"); //Para este control dijo que es mejor un get especie
+        } else $this->renderError("La especie no fue actualizada");
     }
 
     function renderError($msg)

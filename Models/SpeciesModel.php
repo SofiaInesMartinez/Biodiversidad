@@ -20,7 +20,7 @@ class SpeciesModel
     {
         $query = $this->db->prepare("SELECT a.*, b.* FROM especie a LEFT JOIN parquenacional
                  b ON a.id_parque = b.id_PN ORDER BY nombre_cientifico LIMIT " . $this_page_first_result .
-                 "," .  $results_per_page);
+            "," .  $results_per_page);
         $query->execute();
         $species = $query->fetchAll(PDO::FETCH_OBJ);
         return $species;
@@ -58,7 +58,6 @@ class SpeciesModel
     function updateSpecies($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img, $id_especie)
     {
         $sentencia = $this->db->prepare("UPDATE especie SET nombre_cientifico = ?, nombre_comun = ?, descripcion = ?, estado_conservacion = ?, id_parque = ?, img=? WHERE id_especie= ?");
-        $sentencia->execute(array($nombre_cientifico, $nombre_comun, $descripcion,  $estado_conservacion, $id_parque, $img, $id_especie));
+        $sentencia->execute(array($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img, $id_especie));
     }
-
 }

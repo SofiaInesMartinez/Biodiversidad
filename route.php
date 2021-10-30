@@ -89,9 +89,8 @@ switch ($params[0]) {
         else
             $protectedAreasController->renderError('Falta especificar información');
         break;
-    case 'updateAreaDB': {
+    case 'updateAreaDB':
             $protectedAreasController->updateArea();
-        }
         break;
     default:
         $homeController->renderError();
