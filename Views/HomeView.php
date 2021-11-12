@@ -10,10 +10,10 @@ class HomeView
         $this->smarty = new Smarty();
     }
 
-    function showHome($areas, $adm)
+    function showHome($areas)
     {
+        session_start();
         $this->smarty->assign('parques', $areas);
-        $this->smarty->assign('adm', $adm);
         $this->smarty->display('templates/home.tpl');
     }
 

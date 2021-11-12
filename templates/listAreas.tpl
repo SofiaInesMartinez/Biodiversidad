@@ -1,20 +1,5 @@
 {include file="templates/header.tpl"}
 
-<nav class="nav-user">
-    <div>
-        <ul>
-            {if $adm != ""}
-                <li>Bienvenido {$adm}</li>
-                <li><a href="logout">LOG OUT</a></li>
-            {/if}
-            {if $adm == ""}
-                <li><a href="login">LOG IN</a></li>
-            {/if}
-        </ul>
-    </div>
-</nav>
-</nav>
-
 <h1>Áreas protegidas de Argentina</h1>
 <table>
     <thead>
@@ -36,7 +21,7 @@
                     <td>{$area->anio_creacion}</td>
                     <td>{$area->superficie}</td>
                     <td><a href='especiesDelParque/{$area->id_PN}'>Ver especies</a></td>
-                    <td class="td-btn {if $adm == ""} hide {/if}">
+                    <td class="td-btn {if $rol != "adm"} hide {/if}">
                         <a title="Eliminar" href="deleteArea/{$area->id_PN}"><i class="far fa-trash-alt"></i></a>
                         <a title="Actualizar" href="updateArea/{$area->id_PN}"><i class="far fa-edit"></i></a>
                     </td>
@@ -51,7 +36,7 @@
     {/for}
 </div>
 
-<section {if $adm == ""} class="hide" {/if}>
+<section {if $rol != "adm"} class="hide" {/if}>
     <h2>Acceso administador - Alta</h2>
     <div class="formHome">
         <img id="arbol1" src="images/arbol.png">

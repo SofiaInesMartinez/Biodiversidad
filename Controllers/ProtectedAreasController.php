@@ -22,15 +22,15 @@ class ProtectedAreasController
         $results_per_page = 10;
         $number_of_results = $this->model->getTotal();
         $number_of_pages = ceil($number_of_results / $results_per_page);
-        if (!isset($_GET['page'])||($_GET['page'] =='')) {
+        if (!isset($_GET['page']) || ($_GET['page'] == '')) {
             $page = 1;
         } else {
             $page = $_GET['page'];
         }
         $this_page_first_result = ($page - 1) * $results_per_page;
         $areas = $this->model->getAreasByLimit($this_page_first_result, $results_per_page);
-        $adm = $this->authHelper->checkUser();
-        $this->view->renderAreas($areas, $number_of_pages, $adm);
+        $rol = $this->authHelper->checkCredentials();
+        $this->view->renderAreas($areas, $number_of_pages, $rol);
     }
 
     function deleteArea($id)
@@ -70,8 +70,7 @@ class ProtectedAreasController
         if (isset($_GET["id"]) && ($_GET["id"] != '')) {
             $id = $_GET["id"];
             $area = $this->model->getSingleProtectedArea($id);
-            $adm = $this->authHelper->checkUser();
-            $this->view->renderSingleArea($area, $adm);
+            $this->view->renderSingleArea($area);
         } else
             $this->view->renderError("Falta información requerida.");
     }
@@ -81,9 +80,9 @@ class ProtectedAreasController
         $modelSpecies = new SpeciesModel();
         $species = $modelSpecies->getSpeciesbyProtectedArea($id_parque);
         $nombreParque = $this->model->getSingleProtectedArea($id_parque);
-        $adm =  $this->authHelper->checkUser();
-        $this->view->renderSpeciesByProtectedArea($id_parque, $species, $nombreParque->nombre, $adm);
+        $this->view->renderSpeciesByProtectedArea($id_parque, $species, $nombreParque->nombre);
     }
+
 
     function getSingleArea($id)
     {

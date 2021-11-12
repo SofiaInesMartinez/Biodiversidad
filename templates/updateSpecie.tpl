@@ -1,11 +1,4 @@
 {include file="templates/header.tpl"}
-<div>
-    <ul>
-        <li><a href="logout">LOG OUT</a></li>
-    </ul>
-</div>
-</nav>
-</nav>
 
 <section>
     <h2>Acceso administador - Modificación</h2>

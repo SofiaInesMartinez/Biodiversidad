@@ -3,7 +3,7 @@ require_once './Models/UsersModel.php';
 require_once './Views/LoginView.php';
 require_once './Helpers/AuthHelper.php';
 
-class LoginController
+class UserController
 {
     private $model;
     private $view;
@@ -56,4 +56,5 @@ class LoginController
     function logout() {
         $this->authHelper->logout();
     }
+
 }

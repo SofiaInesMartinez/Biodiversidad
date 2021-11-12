@@ -1,15 +1,21 @@
 <?php
 
-class AuthHelper {
-    public function __construct() {}
+class AuthHelper
+{
+    public function __construct()
+    {
+    }
 
-    public function login($user) {
+    public function login($user)
+    {
         session_start();
         $_SESSION['NOMBRE'] = $user->nombre;
+        $_SESSION['ROL'] = $user->rol;
         header("Location: " . BASE_URL . "home");
     }
 
-    function logout() {
+    function logout()
+    {
         session_start();
         session_destroy();
         header("Location: " . BASE_URL . "home");
@@ -24,14 +30,12 @@ class AuthHelper {
         }
     }
 
-    function checkUser()
+    function checkCredentials()
     {
         session_start();
-        if (isset($_SESSION['NOMBRE'])) {
-            $adm = $_SESSION['NOMBRE'];
-        } else {
-            $adm = '';
+        if (isset($_SESSION['ROL'])) {
+            $rol = $_SESSION['ROL'];
+            return $rol;
         }
-        return $adm;
     }
 }

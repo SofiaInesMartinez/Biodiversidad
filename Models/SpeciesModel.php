@@ -58,6 +58,6 @@ class SpeciesModel
     function updateSpecies($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img, $id_especie)
     {
         $sentencia = $this->db->prepare("UPDATE especie SET nombre_cientifico = ?, nombre_comun = ?, descripcion = ?, estado_conservacion = ?, id_parque = ?, img=? WHERE id_especie= ?");
-        $sentencia->execute(array($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img, $id_especie));
+        $sentencia->execute([$nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img, $id_especie]);
     }
 }

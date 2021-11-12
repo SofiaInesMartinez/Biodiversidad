@@ -15,11 +15,10 @@
     <nav class="nav-user">
         <div>
             <ul>
-                {if $adm != ""}
-                    <li>Bienvenido {$adm}</li>
+                {if isset($smarty.SESSION.NOMBRE)}
+                    <li>Bienvenido {$smarty.SESSION.NOMBRE}</li>
                     <li><a href="logout">LOG OUT</a></li>
-                {/if}
-                {if $adm == ""}
+                {else}
                     <li><a href="login">LOG IN</a></li>
                 {/if}
             </ul>

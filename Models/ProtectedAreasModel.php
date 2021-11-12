@@ -9,9 +9,9 @@ class ProtectedAreasModel
     }
     function getTotal()
     {
-        $query = $this->db->prepare('SELECT * FROM parquenacional');
+        $query = $this->db->prepare('SELECT COUNT(*) FROM parquenacional');
         $query->execute();
-        $count = $query->rowCount();
+        $count = $query->fetchColumn();
         return $count;
     }
     

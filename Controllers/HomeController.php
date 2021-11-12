@@ -7,20 +7,17 @@ class HomeController
 {
     private $model;
     private $view;
-    private $authHelper;
 
     public function __construct()
     {
         $this->model = new ProtectedAreasModel();
         $this->view = new HomeView();
-        $this->authHelper = new AuthHelper();
     }
 
     function showHome()
     {
         $areas = $this->model->getProtectedAreas();
-        $nombre = $this->authHelper->checkUser();
-        $this->view->showHome($areas, $nombre);
+        $this->view->showHome($areas);
     }
 
     function renderError()

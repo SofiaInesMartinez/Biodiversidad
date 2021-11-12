@@ -10,18 +10,18 @@ class ProtectedAreasView
         $this->smarty = new Smarty();
     }
 
-    function renderAreas($areas, $maxPages, $adm)
+    function renderAreas($areas, $maxPages, $rol = null)
     {
         $this->smarty->assign('areas', $areas);
         $this->smarty->assign('maxPages', $maxPages);
-        $this->smarty->assign('adm', $adm);
+        $this->smarty->assign('rol', $rol);
         $this->smarty->display('templates/listAreas.tpl');
     }
 
-    function renderSingleArea($area, $adm)
+    function renderSingleArea($area)
     {
+        session_start();
         $this->smarty->assign('area', $area);
-        $this->smarty->assign('adm', $adm);
         $this->smarty->display('templates/singleArea.tpl');
     }
 
@@ -31,12 +31,12 @@ class ProtectedAreasView
         $this->smarty->display('templates/error.tpl');   
     }
 
-    function renderSpeciesByProtectedArea($id_parque, $species, $nameArea, $adm)
+    function renderSpeciesByProtectedArea($id_parque, $species, $nameArea)
     {
+        session_start();
         $this->smarty->assign('id_parque', $id_parque);
         $this->smarty->assign('species', $species);
         $this->smarty->assign('area', $nameArea);
-        $this->smarty->assign('adm', $adm);
         $this->smarty->display('templates/speciesByArea.tpl');
     }
         

@@ -1,18 +1,4 @@
 {include file="templates/header.tpl"}
-<nav class="nav-user">
-    <div>
-        <ul>
-            {if $adm != ""}
-                <li>Bienvenido {$adm}</li>
-                <li><a href="logout">LOG OUT</a></li>
-            {/if}
-            {if $adm == ""}
-                <li><a href="login">LOG IN</a></li>
-            {/if}
-        </ul>
-    </div>
-</nav>
-</nav>
 
 <main>
     <h1>{$area->nombre}</h1>

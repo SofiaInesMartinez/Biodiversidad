@@ -22,3 +22,16 @@
                 </ul>
             </div>
         </nav>
+        <nav class="nav-user">
+            <div>
+                <ul>
+                    {if isset($smarty.SESSION.NOMBRE)}
+                        <li>Bienvenido {$smarty.SESSION.NOMBRE}</li>
+                        <li><a href="logout">LOG OUT</a></li>
+                    {else}
+                        <li><a href="login">LOG IN</a></li>
+                    {/if}
+                </ul>
+            </div>
+        </nav>
+</nav>
