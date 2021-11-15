@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2021 a las 00:08:01
+-- Tiempo de generación: 15-11-2021 a las 18:56:21
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `biodiversidad`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id_comment` int(11) NOT NULL,
+  `comment` varchar(350) NOT NULL,
+  `score` tinyint(4) NOT NULL,
+  `id_PN` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comment`, `comment`, `score`, `id_PN`, `id_usuario`) VALUES
+(1, 'hermoso!', 4, 82, 12),
+(2, 'hsfghsfhgfsh', 5, 82, 12);
 
 -- --------------------------------------------------------
 
@@ -348,6 +370,14 @@ INSERT INTO `usuario` (`id_usuario`, `rol`, `nombre`, `mail`, `clave`) VALUES
 --
 
 --
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id_comment`),
+  ADD KEY `id_PN` (`id_PN`),
+  ADD KEY `fk_comentario_usuario` (`id_usuario`);
+
+--
 -- Indices de la tabla `especie`
 --
 ALTER TABLE `especie`
@@ -373,6 +403,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `especie`
 --
 ALTER TABLE `especie`
@@ -393,6 +429,13 @@ ALTER TABLE `usuario`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `fk_comentario_parquenacional` FOREIGN KEY (`id_PN`) REFERENCES `parquenacional` (`id_PN`),
+  ADD CONSTRAINT `fk_comentario_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `especie`
