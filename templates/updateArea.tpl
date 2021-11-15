@@ -3,7 +3,7 @@
 <section>
     <h2>Acceso administador - Modificación</h2>
     <div class="formHome">
-        <form class="ABMForm" action="updateAreaDB" method="post">
+        <form class="form" action="updateAreaDB" method="post">
             <input name="id_PN" type="number" value="{$areas->id_PN}" hidden>
             <input name="nombre" type="text" placeholder="Nombre" value="{$areas->nombre}">
             <input name="region" type="text" placeholder="Region" value="{$areas->region}">

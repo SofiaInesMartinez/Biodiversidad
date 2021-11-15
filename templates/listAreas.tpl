@@ -15,7 +15,7 @@
         <tbody>
             {foreach from=$areas item=$area}
                 <tr>
-                    <td><a href="area?id={$area->id_PN}">{$area->nombre}</a></td>
+                    <td><a href="area/{$area->id_PN}">{$area->nombre}</a></td>
                     <td>{$area->region}</td>
                     <td>{$area->ubicacion}</td>
                     <td>{$area->anio_creacion}</td>

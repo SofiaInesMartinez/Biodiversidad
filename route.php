@@ -54,7 +54,7 @@ switch ($params[0]) {
         $protectedAreasController->showSpeciesbyProtectedArea($params[1]);
         break;
     case 'area':
-        $protectedAreasController->showSingleArea();
+        $protectedAreasController->showSingleArea($params[1]);
         break;
     case 'deleteSpecies':
         if (isset($params[1]))

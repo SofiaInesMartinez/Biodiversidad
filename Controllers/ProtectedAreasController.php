@@ -3,18 +3,21 @@ require_once './Models/ProtectedAreasModel.php';
 require_once './Views/ProtectedAreasView.php';
 require_once './Models/SpeciesModel.php';
 require_once './Helpers/AuthHelper.php';
+require_once './Models/CommentsModel.php';
 
 class ProtectedAreasController
 {
     private $model;
     private $view;
     private $authHelper;
+    private $commentsModel;
 
     public function __construct()
     {
         $this->model = new ProtectedAreasModel();
         $this->view = new ProtectedAreasView();
         $this->authHelper = new AuthHelper();
+        $this->commentsModel = new CommentsModel();
     }
 
     function showPaginationAreas()
@@ -65,14 +68,12 @@ class ProtectedAreasController
         //$this->view->renderError("El área protegida ya existe"); //Si dejamos, hacer chequeo con getArea
     }
 
-    function showSingleArea()
+    function showSingleArea($id_PN)
     {
-        if (isset($_GET["id"]) && ($_GET["id"] != '')) {
-            $id = $_GET["id"];
-            $area = $this->model->getSingleProtectedArea($id);
-            $this->view->renderSingleArea($area);
-        } else
-            $this->view->renderError("Falta información requerida.");
+        $id_user = $this->authHelper->getId();
+        $area = $this->model->getSingleProtectedArea($id_PN);
+        $comments = $this->commentsModel->getComments();
+        $this->view->renderSingleArea($area, $comments, $id_user);
     }
 
     function showSpeciesbyProtectedArea($id_parque)

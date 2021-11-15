@@ -18,10 +18,11 @@ class ProtectedAreasView
         $this->smarty->display('templates/listAreas.tpl');
     }
 
-    function renderSingleArea($area)
+    function renderSingleArea($area, $comments, $id_user = null)
     {
-        session_start();
         $this->smarty->assign('area', $area);
+        $this->smarty->assign('comments', $comments);
+        $this->smarty->assign('id_user', $id_user);
         $this->smarty->display('templates/singleArea.tpl');
     }
 

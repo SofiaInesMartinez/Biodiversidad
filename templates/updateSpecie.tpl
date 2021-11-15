@@ -3,7 +3,7 @@
 <section>
     <h2>Acceso administador - Modificación</h2>
     <div class="formHome">
-        <form class="ABMForm" action="updateSpeciesDB" method="post">
+        <form class="form" action="updateSpeciesDB" method="post">
             <input name="id_especie" type="number" value="{$especies->id_especie}" hidden>
             <input name="nombre_cientifico" type="text" placeholder="Nombre científico" value="{$especies->nombre_cientifico}">
             <input name="nombre_comun" type="text" placeholder="Nombre común" value="{$especies->nombre_comun}">

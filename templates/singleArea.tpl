@@ -1,4 +1,5 @@
 {include file="templates/header.tpl"}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <main>
     <h1>{$area->nombre}</h1>
@@ -14,10 +15,18 @@
             </p>
         </div>
     </figure>
-    <section>
+
+    <section id="comments">
+        <ul class="comments-list">
+           {include file='templates/vue/commentsList.tpl'}
+        </ul>
+    </section>
+
+
+    <section {if ($id_user == "")} class="hide" {/if}>
         <h2>Dejanos tu comentario </h2>
         <div class="formHome">
-            <form class="form" action="addComment" method="POST">
+            <form class="form" id="API_comment" action="addComment" method="POST">
                 <textarea name="comment" required>¿Visitaste el parque? Queremos conocer tu opinión. </textarea>
                 <div class="radio-toolbar">
                     <label for="score">Calificá el parque</label>
@@ -27,6 +36,8 @@
                     <div><input type="radio" name="score" value="4"><i class="far fa-star"></i></div>
                     <div><input type="radio" name="score" value="5"><i class="far fa-star"></i></div>
                 </div>
+                <input type="hidden" name="id_usuario" value="{$id_user}">
+                <input type="hidden" name="id_PN" value="{$area->id_PN} ">
                 <input type="submit" value="Enviar">
             </form>
         </div>
@@ -34,4 +45,6 @@
 
 </main>
 
+
+<script src="./js/app.js"></script>
 {include file="templates/footer.tpl"}

@@ -19,7 +19,7 @@
                         <td><i><a href='especies/{$especie->id_especie}'>{$especie->nombre_cientifico}</a></i></td>
                         <td>{$especie->nombre_comun}</td>
                         <td>{$especie->estado_conservacion}</td>
-                        <td><a href="area?id={$especie->id_parque}">{$especie->nombre}</a></td>
+                        <td><a href="area/{$especie->id_parque}">{$especie->nombre}</a></td>
                         <td class="td-btn {if $rol != "adm"} hide {/if}">
                             <a title="Eliminar" href="deleteSpecies/{$especie->id_especie}"><i
                                     class="far fa-trash-alt"></i></a>

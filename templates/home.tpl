@@ -50,14 +50,14 @@
             <div class="btn-container">
                 <div>
                     <img src="images/4.jpg">
-                    <form action="area" method="get">
+{*                     <form action="area" method="get">
                         <select name="id">
                             {foreach from=$parques item=$parque}
                                 <option value="{$parque->id_PN}"> {$parque->nombre} </option>
                             {/foreach}
                         </select>
                         <input type="submit" value="Ver ficha del Área">
-                    </form>
+                    </form> *}
                 </div>
             </div>
         </section>

@@ -11,6 +11,7 @@ class AuthHelper
         session_start();
         $_SESSION['NOMBRE'] = $user->nombre;
         $_SESSION['ROL'] = $user->rol;
+        $_SESSION['ID'] = $user->id_usuario;
         header("Location: " . BASE_URL . "home");
     }
 
@@ -37,5 +38,17 @@ class AuthHelper
             $rol = $_SESSION['ROL'];
             return $rol;
         }
+    }
+
+    function getID()
+    {
+        session_start();
+        if (isset($_SESSION['ID'])) {
+            $id = $_SESSION['ID'];
+            return $id;
+        } else {
+            $id = "";
+        }
+        return $id;
     }
 }
