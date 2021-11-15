@@ -1,37 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-@import url(https://fonts.googleapis.com/css?family=Oswald:400|Raleway:400,700,400italic,700italic);
+@import url(https ://fonts.googleapis.com/css?family=Oswald:400|Raleway:400,700,400italic,700italic);
+
 body {
     background-color: #25532e;
-    color: #e5e5e5;
-    font: 16px 'Raleway', sans-serif;
-    text-align: center;
-    margin: 0;
+    color           : #e5e5e5;
+    font            : 16px 'Raleway', sans-serif;
+    text-align      : center;
+    margin          : 0;
 }
 
 h1 {
-    font-size: 4vw;
+    font-size  : 4vw;
     text-shadow: #14742875 4px -5px 2px;
 }
 
 #home {
     background-image: url(../images/0.jpg);
-    padding: 1% 0;
-    margin: 2vh 0;
+    padding         : 1% 0;
+    margin          : 2vh 0;
 }
 
 #content {
-    margin: 2vh 0;
-    display: flex;
+    margin         : 2vh 0;
+    display        : flex;
     justify-content: space-evenly;
 }
 
 a {
-    color: #a2ed56;
+    color          : #a2ed56;
     text-decoration: none;
 }
 
 div h3 {
-    size: 2rem;
+    size  : 2rem;
     margin: 0;
 }
 
@@ -40,7 +41,7 @@ a:hover {
 }
 
 nav {
-    display: flex;
+    display        : flex;
     justify-content: space-between;
 }
 
@@ -53,11 +54,11 @@ nav {
 }
 
 .btn {
-    border-radius: 5%;
-    border: 3px solid #a2ed56;
-    width: 10%;
+    border-radius   : 5%;
+    border          : 3px solid #a2ed56;
+    width           : 10%;
     background-color: #a1ed563d;
-    margin: 3%;
+    margin          : 3%;
 }
 
 section {
@@ -65,16 +66,16 @@ section {
 }
 
 .td-btn {
-    display: flex;
+    display        : flex;
     justify-content: space-between;
-    width: 3vw;
+    width          : 3vw;
     ;
 }
 
 footer {
     justify-content: center;
-    padding-top: 30px;
-    bottom: 0;
+    padding-top    : 30px;
+    bottom         : 0;
 }
 
 .hide {
@@ -83,9 +84,9 @@ footer {
 
 table {
     border-collapse: collapse;
-    border-spacing: 0;
-    max-width: 100%;
-    width: 100%;
+    border-spacing : 0;
+    max-width      : 100%;
+    width          : 100%;
 }
 
 table thead {
@@ -94,14 +95,14 @@ table thead {
 
 table th,
 table td {
-    padding: 1em 0.5em;
+    padding : 1em 0.5em;
     position: relative;
 }
 
 table th {
-    font: 400 1.25em 'Oswald', sans-serif;
+    font          : 400 1.25em 'Oswald', sans-serif;
     letter-spacing: 0.025em;
-    outline: none;
+    outline       : none;
     text-transform: uppercase;
 }
 
@@ -110,25 +111,29 @@ table tbody>tr {
 }
 
 img {
-    margin: 5%;
+    margin       : 5%;
     border-radius: 10%;
 }
 
 div img {
     border-radius: 50%;
-    width: 50%;
-    height: auto;
+    width        : 50%;
+    height       : auto;
 }
 
 figure img {
-    width: 50vw;
+    width : 50vw;
     height: auto;
     margin: 5vh 0;
 }
 
+figure.area {
+    display: flex;
+}
+
 figure p {
-    padding: 1vh 20vw;
-    font-size: 1.3rem;
+    padding   : 1vh 10vw;
+    font-size : 1.3rem;
     text-align: justify;
 }
 
@@ -137,22 +142,22 @@ figure p {
 }
 
 .btn-container {
-    width: 40vw;
-    height: 55vh;
-    display: flex;
+    width         : 40vw;
+    height        : 55vh;
+    display       : flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap     : wrap;
 }
 
 div {
-    display: flex;
+    display        : flex;
     justify-content: space-around;
-    flex-wrap: wrap;
+    flex-wrap      : wrap;
 }
 
 figure div {
-    flex-direction: column;
-    align-items: center;
+    align-content: center;
+    align-items   : center;
 }
 
 input,
@@ -161,13 +166,13 @@ textarea,
 button {
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
-    padding: 10px;
-    border: 3px solid #a2ed56;
+    padding    : 10px;
+    border     : 3px solid #a2ed56;
 }
 
 nav a {
     padding: 3px;
-    margin: 25px 10px;
+    margin : 25px 10px;
 }
 
 #arbol1 {
@@ -178,51 +183,69 @@ nav a {
     grid-area: arbol2;
 }
 
-.ABMForm {
-    grid-area: form;
-    display: flex;
+.form {
+    grid-area     : form;
+    display       : flex;
     flex-direction: column;
 }
 
+.radio-toolbar {
+    margin: 10px;
+}
+
+.radio-toolbar input[type="radio"] {
+    opacity : 0;
+    position: relative;
+    width   : 0;
+}
+
+.radio-toolbar i {
+    position: absolute;
+}
+
+.radio-toolbar i:hover {
+    transform: scale(1.3);
+}
+
 div.formHome img {
-    width: 50%;
-    height: 70%;
-    margin: 0%;
+    width  : 50%;
+    height : 70%;
+    margin : 0%;
     display: block;
-    margin: auto;
+    margin : auto;
 }
 
 .formHome {
-    display: grid;
-    grid-template-areas: "arbol1 form arbol2";
+    display              : grid;
+    grid-template-areas  : "arbol1 form arbol2";
     grid-template-columns: 1fr 2fr 1fr;
 }
 
 .formHome input,
 .formHome select,
 .formHome textarea {
-    margin: 10px;
+    margin : 10px;
     padding: 2%;
 }
 
 div ul {
-    display: flex;
+    display   : flex;
     list-style: none;
 }
 
 .formUser {
-    flex-direction: column;
+    flex-direction  : column;
     background-color: beige;
-    border: 6px solid #304d14;
-    text-align: center;
-    width: 25%;
-    align-self: center;
-    border-radius: 5%;
-    margin: 0 auto;
+    border          : 6px solid #304d14;
+    text-align      : center;
+    width           : 25%;
+    align-self      : center;
+    border-radius   : 5%;
+    margin          : 0 auto;
 }
 
 .formUser form {
-    display: flex;
+    display       : flex;
     flex-direction: column;
 }
 
@@ -251,15 +274,15 @@ input[type=submit] {
 
 .pages {
     margin-top: 30px;
-    display: inline-block;
+    display   : inline-block;
 }
 
 .pages a {
-    margin-left: 5px;
+    margin-left : 5px;
     margin-right: 5px;
 }
 
 .background {
     background-image: url(../images/fondo.jpg);
-    background-size: cover;
+    background-size : cover;
 }

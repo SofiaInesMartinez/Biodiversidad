@@ -40,7 +40,7 @@
     <h2>Acceso administador - Alta</h2>
     <div class="formHome">
         <img id="arbol1" src="images/arbol.png">
-        <form class="ABMForm" action="addArea" method="post">
+        <form class="form" action="addArea" method="post">
             <input name="nombre" type="text" placeholder="Nombre" required>
             <input name="region" type="text" placeholder="Región" required>
             <input name="ubicacion" type="text" placeholder="Ubicación" required>

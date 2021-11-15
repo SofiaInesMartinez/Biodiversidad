@@ -41,7 +41,7 @@
         <h2>Acceso administador - Alta</h2>
         <div class="formHome">
             <img id="arbol1" src="images/arbol.png">
-            <form class="ABMForm" action="addSpecies" method="post">
+            <form class="form" action="addSpecies" method="post">
                 <input name="nombre_cientifico" type="text" placeholder="Nombre científico" required>
                 <input name="nombre_comun" type="text" placeholder="Nombre común">
                 <textarea name="descripcion" placeholder="Descripción"></textarea>
