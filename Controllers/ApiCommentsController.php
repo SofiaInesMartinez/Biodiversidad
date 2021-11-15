@@ -34,7 +34,7 @@ class ApiCommentsController
             $id =  $this->model->addComment($data->comment, $data->score, $data->id_usuario, $data->id_PN);
             $comment = $this->model->getComment($id);
             if ($comment) {
-                $this->view->renderError($comment, 200);
+                $this->view->response($comment, 200);
             } else
                 $this->view->response("El comentario no fue cread0", 500);
         } else
@@ -48,7 +48,7 @@ class ApiCommentsController
         $id = $params[':ID'];
         $comment = $this->model->getComment($id);
         if ($comment)
-            return $this->view->renderError($comment, 200);
+            return $this->view->response($comment, 200);
         else
             return $this->view->response("El comentario id=$id no existe", 200);
     }
@@ -62,7 +62,7 @@ class ApiCommentsController
             $data = $this->getData();
             if (isset($data->comment) && isset($data->score)) {
                 $comment = $this->model->updateComment($id, $data->comment, $data->score, $data->user);
-                return $this->view->renderError("Comentario id=$id actualizado con éxito", 200);
+                return $this->view->response("Comentario id=$id actualizado con éxito", 200);
             } else
                 return $this->view->response("Faltan datos para actualizar comentario id=$id", 200);
         } else
