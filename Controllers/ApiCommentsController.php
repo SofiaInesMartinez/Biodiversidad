@@ -22,7 +22,7 @@ class ApiCommentsController
 
     public function getComments()
     {
-        $id_PN = $_POST["id_PN"];
+        /* $id_PN = $_POST["id_PN"]; */
         $comments = $this->model->getComments();
         return $this->view->response($comments, 200);
     }
