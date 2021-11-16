@@ -32,8 +32,8 @@ class SpeciesController
         $this_page_first_result = ($page - 1) * $results_per_page; //obtiene inicio de la porcion de la tabla requerida
         $species = $this->model->getSpeciesByLimit($this_page_first_result, $results_per_page);
         $areas = $this->modelArea->getProtectedAreas();
-        $rol = $this->authHelper->checkCredentials();
-        $this->view->renderSpecies($species, $areas, $number_of_pages, $rol);
+        $user = $this->authHelper->checkClearence();
+        $this->view->renderSpecies($species, $areas, $number_of_pages, $user);
     }
 
     function deleteSpecies($id)

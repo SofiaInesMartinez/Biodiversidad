@@ -21,7 +21,7 @@
     </section>
 
 
-    <section {if ($id_user == "")} class="hide" {/if}>
+    <section {if ($user['rol'] == "")} class="hide" {/if}>
         <h2>Dejanos tu comentario </h2>
         <div class="formHome">
             <form class="form" id="API_comment" action="addComment" method="POST">
@@ -35,7 +35,7 @@
                     <div><input type="radio" name="score" value="4"></div>
                     <div><input type="radio" name="score" value="5"></div>
                 </div>
-                <input type="hidden" name="id_usuario" value="{$id_user}">
+                <input type="hidden" name="id_usuario" value="{$user['id']}">
                 <input type="hidden" name="id_PN" value="{$area->id_PN}" id="id_PN">
                 <input type="submit" value="Enviar" id="btn-add">
             </form>

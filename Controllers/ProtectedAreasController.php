@@ -32,8 +32,8 @@ class ProtectedAreasController
         }
         $this_page_first_result = ($page - 1) * $results_per_page;
         $areas = $this->model->getAreasByLimit($this_page_first_result, $results_per_page);
-        $rol = $this->authHelper->checkCredentials();
-        $this->view->renderAreas($areas, $number_of_pages, $rol);
+        $user = $this->authHelper->checkClearence();
+        $this->view->renderAreas($areas, $number_of_pages, $user);
     }
 
     function deleteArea($id)
@@ -70,10 +70,10 @@ class ProtectedAreasController
 
     function showSingleArea($id_PN)
     {
-        $user_id = $this->authHelper->getID();
+        $user = $this->authHelper->checkClearence();
         $area = $this->model->getSingleProtectedArea($id_PN);
         $comments = $this->commentsModel->getComments($id_PN);
-        $this->view->renderSingleArea($area, $comments, $user_id);
+        $this->view->renderSingleArea($area, $comments, $user);
     }
 
     function showSpeciesbyProtectedArea($id_parque)

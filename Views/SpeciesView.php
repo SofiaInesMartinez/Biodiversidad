@@ -8,11 +8,11 @@ class SpeciesView
         $this->smarty = new Smarty();
     }
 
-    function renderSpecies($species, $areas, $maxPages, $rol = null) {
+    function renderSpecies($species, $areas, $maxPages, $user) {
         $this->smarty->assign('especies', $species);
         $this->smarty->assign('areas', $areas);
         $this->smarty->assign('maxPages', $maxPages);
-        $this->smarty->assign('rol', $rol);
+        $this->smarty->assign('user', $user);
         $this->smarty->display('templates/listSpecies.tpl');
     }
 

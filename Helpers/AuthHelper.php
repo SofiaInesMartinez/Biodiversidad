@@ -32,25 +32,20 @@ class AuthHelper
         }
     }
 
-    function checkCredentials()
+    function checkClearence()
     {
         session_start();
-        if (isset($_SESSION['ROL'])) {
-            $rol = $_SESSION['ROL'];
-            return $rol;
-        }
-    }
-
-    function getID()
-    {
-        session_start();
-        if (isset($_SESSION['ID'])) {
+        if (isset($_SESSION['ID'])&&isset($_SESSION['ROL'])) {
             $id = $_SESSION['ID'];
-            return $id;
+            $rol = $_SESSION['ROL'];
         } else {
             $id = "";
+            $rol="";
         }
-        return $id;
+        $user = array(
+            "id"=>$id,
+            "rol"=>$rol
+        );
+        return $user;
     }
-
 }

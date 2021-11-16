@@ -10,19 +10,19 @@ class ProtectedAreasView
         $this->smarty = new Smarty();
     }
 
-    function renderAreas($areas, $maxPages, $rol = null)
+    function renderAreas($areas, $maxPages, $user)
     {
         $this->smarty->assign('areas', $areas);
         $this->smarty->assign('maxPages', $maxPages);
-        $this->smarty->assign('rol', $rol);
+        $this->smarty->assign('user', $user);
         $this->smarty->display('templates/listAreas.tpl');
     }
 
-    function renderSingleArea($area, $comments, $id_user)
+    function renderSingleArea($area, $comments, $user)
     {
         $this->smarty->assign('area', $area);
         $this->smarty->assign('comments', $comments);
-        $this->smarty->assign('id_user', $id_user);
+        $this->smarty->assign('user', $user);
         $this->smarty->display('templates/singleArea.tpl');
     }
 
