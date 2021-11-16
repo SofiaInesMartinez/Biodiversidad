@@ -12,6 +12,7 @@ class AuthHelper
         $_SESSION['NOMBRE'] = $user->nombre;
         $_SESSION['ROL'] = $user->rol;
         $_SESSION['ID'] = $user->id_usuario;
+        $_SESSION['MAIL'] = $user->mail;
         header("Location: " . BASE_URL . "home");
     }
 
@@ -51,4 +52,5 @@ class AuthHelper
         }
         return $id;
     }
+
 }

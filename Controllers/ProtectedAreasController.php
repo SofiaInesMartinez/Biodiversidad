@@ -70,10 +70,10 @@ class ProtectedAreasController
 
     function showSingleArea($id_PN)
     {
-        $id_user = $this->authHelper->getId();
+        $user_id = $this->authHelper->getID();
         $area = $this->model->getSingleProtectedArea($id_PN);
-        $comments = $this->commentsModel->getComments();
-        $this->view->renderSingleArea($area, $comments, $id_user);
+        $comments = $this->commentsModel->getComments($id_PN);
+        $this->view->renderSingleArea($area, $comments, $user_id);
     }
 
     function showSpeciesbyProtectedArea($id_parque)

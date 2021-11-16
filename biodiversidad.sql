@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2021 a las 18:56:21
+-- Tiempo de generación: 16-11-2021 a las 01:05:46
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -41,7 +41,35 @@ CREATE TABLE `comentario` (
 
 INSERT INTO `comentario` (`id_comment`, `comment`, `score`, `id_PN`, `id_usuario`) VALUES
 (1, 'hermoso!', 4, 82, 12),
-(2, 'hsfghsfhgfsh', 5, 82, 12);
+(2, 'hsfghsfhgfsh', 5, 82, 12),
+(8, 'AAA', 4, 82, 12),
+(11, 'BBBA!', 4, 82, 12),
+(12, 'otro!', 4, 82, 12),
+(13, 'OTROOO', 4, 82, 12),
+(14, 'YTRURURYTU', 2, 82, 12),
+(15, 'DSFGFHGF', 3, 82, 12),
+(16, 'DSFGFHGF', 3, 82, 12),
+(19, 'DSFGFHGF', 3, 82, 12),
+(20, '54365436', 4, 82, 12),
+(21, '54365436', 4, 82, 12),
+(22, 'FDSGDSG', 4, 82, 12),
+(23, 'loajoj', 5, 82, 12),
+(24, 'rjyrtuyjuykjuy', 2, 69, 12),
+(25, 'hgfjhjhjfgh', 3, 69, 12),
+(26, 'el ultimo del 82', 3, 82, 12),
+(27, 'Los senderos son hermosos. Un lugar increible', 5, 65, 12),
+(28, 'DDfdsagfd', 3, 65, 12),
+(29, 'tuytrujytruj', 3, 65, 12),
+(30, 'tuytrujytruj', 3, 65, 12),
+(31, '', 3, 65, 12),
+(32, '¿Visitaste el parque? Queremos ghjgfjhgfjgfhconocer tu opinión. ', 0, 65, 12),
+(33, 'fggfdgfd', 2, 65, 12),
+(34, 'hyjrytjruytj', 1, 65, 12),
+(35, 'hgjhtjhfg', 0, 84, 12),
+(36, '¿Visitaste el parque? Queremos conocer tu opinión. ', 2, 84, 12),
+(37, 'jjuytjuytktiuy', 2, 84, 12),
+(38, 'hjrjrtuju', 4, 82, 11),
+(39, 'jkhgjkllkhkj', 4, 82, 11);
 
 -- --------------------------------------------------------
 
@@ -406,7 +434,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `especie`

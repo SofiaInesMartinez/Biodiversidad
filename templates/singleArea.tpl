@@ -16,10 +16,8 @@
         </div>
     </figure>
 
-    <section id="comments">
-        <ul class="comments-list">
-           {include file='templates/vue/commentsList.tpl'}
-        </ul>
+    <section id="comments-list">
+        {include file='templates/vue/commentsList.tpl'}
     </section>
 
 
@@ -27,18 +25,19 @@
         <h2>Dejanos tu comentario </h2>
         <div class="formHome">
             <form class="form" id="API_comment" action="addComment" method="POST">
-                <textarea name="comment" required>¿Visitaste el parque? Queremos conocer tu opinión. </textarea>
+                <label>¿Visitaste el parque? Queremos conocer tu opinión. </label>
+                <textarea name="comment" required></textarea>
                 <div class="radio-toolbar">
                     <label for="score">Calificá el parque</label>
-                    <div><input type="radio" name="score" value="1"><i class="far fa-star"></i></div>
-                    <div><input type="radio" name="score" value="2"><i class="far fa-star"></i></div>
-                    <div><input type="radio" name="score" value="3"><i class="far fa-star"></i></div>
-                    <div><input type="radio" name="score" value="4"><i class="far fa-star"></i></div>
-                    <div><input type="radio" name="score" value="5"><i class="far fa-star"></i></div>
+                    <div><input type="radio" name="score" value="1" required></div>
+                    <div><input type="radio" name="score" value="2"></div>
+                    <div><input type="radio" name="score" value="3"></div>
+                    <div><input type="radio" name="score" value="4"></div>
+                    <div><input type="radio" name="score" value="5"></div>
                 </div>
                 <input type="hidden" name="id_usuario" value="{$id_user}">
-                <input type="hidden" name="id_PN" value="{$area->id_PN} ">
-                <input type="submit" value="Enviar">
+                <input type="hidden" name="id_PN" value="{$area->id_PN}" id="id_PN">
+                <input type="submit" value="Enviar" id="btn-add">
             </form>
         </div>
     </section>
