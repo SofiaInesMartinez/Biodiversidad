@@ -160,11 +160,17 @@ div {
     display        : flex;
     justify-content: space-around;
     flex-wrap      : wrap;
+    align-items    : center;
 }
 
 figure div {
-    align-content: center;
-    align-items  : center;
+    align-content : center;
+    align-items   : center;
+    flex-direction: column;
+}
+
+div>label {
+    font-size: small;
 }
 
 input,
@@ -197,12 +203,11 @@ nav a {
 }
 
 .radio-toolbar {
-    margin: 10px;
+    margin: 2px;
 }
 
 .radio-toolbar input[type="radio"] {
     position: relative;
-    width   : 2;
 }
 
 div.formHome img {
@@ -222,7 +227,7 @@ div.formHome img {
 .formHome input,
 .formHome select,
 .formHome textarea {
-    margin : 10px;
+    margin : 10px 5px;
     padding: 2%;
 }
 

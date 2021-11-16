@@ -27,13 +27,13 @@
             <form class="form" id="API_comment" action="addComment" method="POST">
                 <label>¿Visitaste el parque? Queremos conocer tu opinión. </label>
                 <textarea name="comment" required></textarea>
+                <label for="score">Calificá el parque</label>
                 <div class="radio-toolbar">
-                    <label for="score">Calificá el parque</label>
-                    <div><input type="radio" name="score" value="1" required></div>
-                    <div><input type="radio" name="score" value="2"></div>
-                    <div><input type="radio" name="score" value="3"></div>
-                    <div><input type="radio" name="score" value="4"></div>
-                    <div><input type="radio" name="score" value="5"></div>
+                    <div><label>Malo</label><input type="radio" name="score" value="1" required></div>
+                    <div><label>Regular</label><input type="radio" name="score" value="2"></div>
+                    <div><label>Bueno</label><input type="radio" name="score" value="3"></div>
+                    <div><label>Muy bueno</label><input type="radio" name="score" value="4"></div>
+                    <div><label>Excelente</label><input type="radio" name="score" value="5"></div>
                 </div>
                 <input type="hidden" name="id_usuario" value="{$user['id']}">
                 <input type="hidden" name="id_PN" value="{$area->id_PN}" id="id_PN">
