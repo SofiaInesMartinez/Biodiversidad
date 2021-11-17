@@ -21,7 +21,7 @@
     </section>
 
 
-    <section {if ($user['rol'] == "")} class="hide" {/if}>
+    <section id="commentsForm" data-user="{$user['rol']}" {if ($user['rol'] == "")} class="hide" {/if}>
         <h2>Dejanos tu comentario </h2>
         <div class="formHome">
             <form class="form" id="API_comment" action="addComment" method="POST">

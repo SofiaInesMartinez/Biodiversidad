@@ -39,14 +39,6 @@ class CommentsModel
         return $comment;
     }
 
-    public function updateComment($id, $comment, $score)
-    {
-        $query = $this->db->prepare('UPDATE comentario SET comment =?, score = ? WHERE id_comment = ?');
-        $query->execute([$comment, $score, $id]);
-        $comment = $query->fetch(PDO::FETCH_OBJ);
-        return $comment;
-    }
-
     public function deleteComment($id)
     {
         $query = $this->db->prepare('DELETE FROM comentario WHERE id_comment = ?');

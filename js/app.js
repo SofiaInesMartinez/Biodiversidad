@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         data: {
             titulo: "Comentarios de nuestros visitantes",
             comments: [],
+            user: ""
         },
         methods: {
             eliminar: function (event) {
@@ -24,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    function getUserRol() {
+        let commentsForm = document.getElementById('commentsForm');
+        app1.user = commentsForm.dataset.user
+    }
 
     async function getCommentsByArea() {
         let idPN = document.getElementById("id_PN").value;
@@ -35,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(e);
         }
     }
-
 
     async function addComment() {
         let newComment = commentData();
@@ -93,4 +97,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     getCommentsByArea();
+    getUserRol();
 })
