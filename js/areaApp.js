@@ -1,6 +1,7 @@
 "use strict"
 document.addEventListener('DOMContentLoaded', function () {
-    let url = "api/comentarios";
+    let idPN = document.getElementById("id_PN").value;
+    let url = `api/${idPN}/comentarios`;
 
     let formComment = document.querySelector("#API_comment");
     formComment.addEventListener("submit", function (e) {
@@ -31,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function getCommentsByArea() {
-        let idPN = document.getElementById("id_PN").value;
+
         try {
-            let response = await fetch(`${url}?id_PN=${idPN}`);
+            let response = await fetch(url);
             let comments = await response.json();
             app1.comments = comments;
         } catch (e) {

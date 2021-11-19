@@ -18,10 +18,9 @@ class ProtectedAreasView
         $this->smarty->display('templates/listAreas.tpl');
     }
 
-    function renderSingleArea($area, $comments, $user)
+    function renderSingleArea($area, $user)
     {
         $this->smarty->assign('area', $area);
-        $this->smarty->assign('comments', $comments);
         $this->smarty->assign('user', $user);
         $this->smarty->display('templates/singleArea.tpl');
     }
@@ -29,7 +28,7 @@ class ProtectedAreasView
     function renderError($msg)
     {
         $this->smarty->assign('msg', $msg);
-        $this->smarty->display('templates/error.tpl');   
+        $this->smarty->display('templates/error.tpl');
     }
 
     function renderSpeciesByProtectedArea($id_parque, $species, $nameArea)
@@ -40,11 +39,11 @@ class ProtectedAreasView
         $this->smarty->assign('area', $nameArea);
         $this->smarty->display('templates/speciesByArea.tpl');
     }
-        
 
-    function getSingleProtectedArea($areas){
+
+    function getSingleProtectedArea($areas)
+    {
         $this->smarty->assign('areas', $areas);
         $this->smarty->display('templates/updateArea.tpl');
     }
-    
 }

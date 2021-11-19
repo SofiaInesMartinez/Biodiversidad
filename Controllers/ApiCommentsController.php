@@ -22,11 +22,8 @@ class ApiCommentsController
 
     public function getComments($params = null)
     {
-        if (isset($_GET['id_PN']) && ($_GET['id_PN'] != '')) {
-            $id_PN = $_GET['id_PN'];
-        } else
-            $id_PN = '';
-        $comments = $this->model->getComments($id_PN);
+        $id_PN = $params[':ID_PN'];
+        $comments = $this->model->getCommentsbyArea($id_PN);
         return $this->view->response($comments, 200);
     }
 

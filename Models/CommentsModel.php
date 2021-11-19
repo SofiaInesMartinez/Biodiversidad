@@ -10,16 +10,11 @@ class CommentsModel
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=biodiversidad;charset=utf8', 'root', '');
     }
 
-    public function getComments($id_PN)
+    public function getCommentsbyArea($id_PN)
     {
-        if ($id_PN != '') {
-            $search = "WHERE id_PN = $id_PN";
-        } else
-            $search = '';
-
         $query = $this->db->prepare("SELECT a.*, b.nombre FROM comentario a LEFT JOIN usuario b
-        ON a.id_usuario = b.id_usuario $search");
-        $query->execute([]);
+        ON a.id_usuario = b.id_usuario WHERE id_PN = ?");
+        $query->execute([$id_PN]);
         $comments = $query->fetchAll(PDO::FETCH_OBJ);
         return $comments;
     }
