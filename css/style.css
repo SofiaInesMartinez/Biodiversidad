@@ -255,6 +255,19 @@ div ul {
     margin: 35px;
 }
 
+.formRol {
+    flex-direction: column;
+    text-align: center;
+    width: 35%;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.formRol select,
+.formRol input {
+    margin: 15px;
+}
+
 a,
 input[type=submit] {
     cursor: pointer;

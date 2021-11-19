@@ -13,7 +13,7 @@ $router->addRoute('comentarios/:ID', 'DELETE', 'ApiCommentsController', 'deleteC
 //Entiendo que no hace falta actualizar ni obtener de a un comment
 
 $router->addRoute('usuario', 'GET', 'ApiUsersController', 'getUsers');
-$router->addRoute('usuario:ID', 'PUT', 'ApiUsersController', 'updateUser');
+$router->addRoute('usuario/:ID', 'PUT', 'ApiUsersController', 'updateUser');
 $router->addRoute('usuario/:ID', 'DELETE', 'ApiUsersController', 'deleteUser');
 
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

@@ -17,21 +17,15 @@
     
     <section>
         <h2>Cambiar permiso de usuario:</h2>
-        <div class="formHome">
-            <img id="arbol1" src="images/arbol.png">
-            <form class="form" action="api/usuario" method="post">
-                <select name="id_usuario" required>
-                    {foreach from=$users item=$user}
-                        <option value="{$user->id_usuario}"> {$user->id_usuario} </option>
-                    {/foreach}
-                </select>
+        <div class="formRol">
+            <form class="form" action="updateUser" id="userForm">
+                <input value="" type="number" name="id" placeholder="ID" required/>
                 <select name="rol" required>
                     <option value="adm">adm</option>
                     <option value="user">user</option>
                 </select>
-                <button type="submit" id="btn-update">Cambiar</button>
+                <input type="submit" value="Cambiar" id="btn-update"/>
             </form>
-            <img id="arbol2" src="images/arbol.png">
         </div>
     </section>
 </main>

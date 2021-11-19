@@ -56,7 +56,12 @@ class UserController
 
     function showUsers() {
         $this->authHelper->checkLoggedIn();
-        $this->view->showUsers();
+        if ($_SESSION['ROL'] == 'adm') {
+            $this->view->showUsers();
+        } else {
+            header("Location: " . BASE_URL . "home"); // esto se hace en el auth helper?            
+        }
+        
     }
 
     function logout() {

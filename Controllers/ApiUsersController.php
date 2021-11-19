@@ -28,7 +28,7 @@ class ApiUsersController
 
     public function updateUser($params = null) {
         $user_id = $params[':ID'];
-        $user = $this->model->getUser($user_id);
+        $user = $this->model->getUserByID($user_id);
 
         if ($user) {
             $body = $this->getData();
