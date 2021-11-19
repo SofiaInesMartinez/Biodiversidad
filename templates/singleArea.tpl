@@ -45,5 +45,5 @@
 </main>
 
 
-<script src="./js/app.js"></script>
+<script src="./js/areaApp.js"></script>
 {include file="templates/footer.tpl"}
