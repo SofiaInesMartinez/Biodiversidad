@@ -59,7 +59,7 @@ class UserController
         if ($_SESSION['ROL'] == 'adm') {
             $this->view->showUsers();
         } else {
-            header("Location: " . BASE_URL . "home"); // esto se hace en el auth helper?            
+            $this->view->showLogin("Necesita permiso de administrador.");         
         }
         
     }
