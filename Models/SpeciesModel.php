@@ -52,7 +52,7 @@ class SpeciesModel
     function addSpecies($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img)
     {
         $sentencia = $this->db->prepare("INSERT INTO especie(nombre_cientifico, nombre_comun, descripcion, estado_conservacion, id_parque, img) VALUES(?, ?, ?, ?, ?, ?)");
-        $sentencia->execute(array($nombre_cientifico, $nombre_comun, $descripcion,  $estado_conservacion, $id_parque, $img));
+        $sentencia->execute(array($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img));
     }
 
     function updateSpecies($nombre_cientifico, $nombre_comun, $descripcion, $estado_conservacion, $id_parque, $img, $id_especie)

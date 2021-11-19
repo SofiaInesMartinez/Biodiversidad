@@ -49,7 +49,7 @@
                 <select name="id_parque" required>
                     <option selected disabled>Área protegida</option>
                     {foreach from=$areas item=$area}
-                        <option value="{$area->id_parque}"> {$area->nombre} </option>
+                        <option value="{$area->id_PN}"> {$area->nombre} </option>
                     {/foreach}
                 </select>
                 <input name="img" type="text" placeholder="Enlace a imagen" required>
