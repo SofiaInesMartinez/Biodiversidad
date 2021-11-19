@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2021 a las 15:50:24
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.9
+-- Tiempo de generación: 19-11-2021 a las 04:44:01
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,7 +63,6 @@ INSERT INTO `comentario` (`id_comment`, `comment`, `score`, `id_PN`, `id_usuario
 (35, 'hgjhtjhfg', 0, 84, 12),
 (36, '¿Visitaste el parque? Queremos conocer tu opinión. ', 2, 84, 12),
 (37, 'jjuytjuytktiuy', 2, 84, 12),
-(38, 'hjrjrtuju', 4, 82, 11),
 (39, 'jkhgjkllkhkj', 4, 82, 11),
 (40, 'yuurytutryuytr', 4, 69, 12),
 (41, 'gfxhgfjhgdj', 5, 82, 12);
@@ -382,13 +381,14 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `rol`, `nombre`, `mail`, `clave`) VALUES
-(1, 'adm', 'Tomás Rodríguez', 'augustotomasrodriguez@gmail.com', '$2y$10$4p.7jzElKfJCpv13RsOabOFuBs4fRUBaYJVJNkfhTCCeMv8B60.SO'),
-(5, '', 'Santiago Rodríguez', 'santiago@gmail.com', '$2y$10$wqwObz4w3VoxA3t0p6097.BgqX.sdvdZhsKM5UJRW82jh8EwWea2u'),
-(6, '', 'Marta Lopez', 'marta@gmail.com', '$2y$10$uRq/L4hUrGByGSI264iFY.S.ltjSnwXpOtwxoThT8DircPwCucPz2'),
-(7, '', 'Julieta Garcia', 'julietagg@gmail.com', '$2y$10$jzzPRPAl0zh3uhmhrrpFLuZnGiGX.ukyQ8FamB0batpr0fX/lDGQG'),
-(8, '', 'Julian Ortiz', 'julianortiz@gmail.com', '$2y$10$9ksy6rUPOa2Tzcjc7OqGweOvNizZbuCr/dGRLvHjcQSuMOhSFeNp.'),
+(1, 'adm', 'Augusto Rodríguez', 'augusto@gmail.com', '$2y$10$lEVo2Hxb2T.AKXtoVkY7bu5BZurZadhoqzmZvwJqQbEk4S.Lzl8h.'),
+(5, 'user', 'Santiago Rodríguez', 'santiago@gmail.com', '$2y$10$wqwObz4w3VoxA3t0p6097.BgqX.sdvdZhsKM5UJRW82jh8EwWea2u'),
+(6, 'user', 'Marta Lopez', 'marta@gmail.com', '$2y$10$uRq/L4hUrGByGSI264iFY.S.ltjSnwXpOtwxoThT8DircPwCucPz2'),
 (11, 'user', 'Violeta', 'viole@gmail.com', '$2y$10$CEL1TcQ1gOQgleNihV/EauXV.IDJXFttwyGu4r36E2TDwTFDxxjA.'),
-(12, 'adm', 'Sofia Martinez', 'sofim@gmail.com', '$2y$10$jJqA7PENDjdpOb9PXin5jOAOWtfECV9CzmeAiHUmDfAH/FTNKvoOO');
+(12, 'adm', 'Sofia Martinez', 'sofim@gmail.com', '$2y$10$jJqA7PENDjdpOb9PXin5jOAOWtfECV9CzmeAiHUmDfAH/FTNKvoOO'),
+(16, 'user', 'José Luis', 'pumita@gmail.com', '$2y$10$tStUuU0/ox9jU4yriTAojO6Tx7i7smU.pQCZI2H/tJFBI9Uq66dbW'),
+(20, 'user', 'hola', 'hola@gmail.com', '$2y$10$hcadYtlYZC732iqlt6DBzOe.OKWSxEI4fO8wzqg6D5QnFtWM.mxWm'),
+(21, 'user', 'bautista', 'bauti@gmail.com', '$2y$10$TKUkSVTYmRByzdIONaAwd.DB1/dXOBt5uo4QMM.NKKOgHpg9bqYUC');
 
 --
 -- Índices para tablas volcadas
@@ -449,7 +449,7 @@ ALTER TABLE `parquenacional`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas
