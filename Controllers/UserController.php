@@ -1,6 +1,6 @@
 <?php
 require_once './Models/UsersModel.php';
-require_once './Views/LoginView.php';
+require_once './Views/UsersView.php';
 require_once './Helpers/AuthHelper.php';
 
 class UserController
@@ -11,7 +11,7 @@ class UserController
 
     public function __construct() {
         $this->model = new UsersModel();
-        $this->view = new LoginView();
+        $this->view = new UsersView();
         $this->authHelper = new AuthHelper();
     }
 
@@ -31,7 +31,8 @@ class UserController
         if (($user == NULL)&&(isset($name)&&isset($mail)&&isset($pass))) {
             $hash = password_hash($pass, PASSWORD_DEFAULT);
             $this->model->addUser($name, $mail, $hash);
-            $this->view->showSignup("Se registro al usuario exitosamente.");
+            $user = $this->model->getUser($mail);
+            $this->authHelper->login($user);
         } else {
             $this->view->showSignup("Ocurrió un error en el registro.");
         }
@@ -51,6 +52,11 @@ class UserController
         } else {
             $this->view->showLogin("Ocurrió un error en el ingreso.");
         }
+    }
+
+    function showUsers() {
+        $this->authHelper->checkLoggedIn();
+        $this->view->showUsers();
     }
 
     function logout() {

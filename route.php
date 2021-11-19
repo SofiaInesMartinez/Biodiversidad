@@ -21,24 +21,24 @@ $params = explode('/', $action);
 $protectedAreasController = new ProtectedAreasController();
 $speciesController = new SpeciesController();
 $homeController = new HomeController();
-$loginController = new UserController();
+$userController = new UserController();
 $commentsController = new ApiCommentsController();
 
 switch ($params[0]) {
     case 'login':
-        $loginController->showLogin();
+        $userController->showLogin();
         break;
     case 'signup':
-        $loginController->showSignup();
+        $userController->showSignup();
         break;
     case 'addUser':
-        $loginController->addUser();
+        $userController->addUser();
         break;
     case 'verifyUser':
-        $loginController->verifyUser();
+        $userController->verifyUser();
         break;
     case 'logout':
-        $loginController->logout();
+        $userController->logout();
         break;
     case 'home':
         $homeController->showHome();
@@ -48,6 +48,9 @@ switch ($params[0]) {
         break;
     case 'listaParques':
         $protectedAreasController->showPaginationAreas();
+        break;
+    case 'usuarios':
+        $userController->showUsers();
         break;
     case 'especies':
         $speciesController->showSingleSpecies($params[1]);

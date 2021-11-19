@@ -1,7 +1,7 @@
 <?php
 require_once('libs/Smarty.class.php');
 
-class LoginView
+class UsersView
 {
     private $smarty;
 
@@ -22,4 +22,8 @@ class LoginView
         $this->smarty->display('templates/signUp.tpl');
     }
     
+    function showUsers()
+    {
+        $this->smarty->display('templates/users.tpl');
+    }
 }

@@ -46,20 +46,16 @@
                     </div>
                 </a>
             </div>
-
+            {if isset($smarty.SESSION.ROL) && ($smarty.SESSION.ROL === 'adm')}
             <div class="btn-container">
-                <div>
+                <a href="usuarios">
                     <img src="images/4.jpg">
-{*                     <form action="area" method="get">
-                        <select name="id">
-                            {foreach from=$parques item=$parque}
-                                <option value="{$parque->id_PN}"> {$parque->nombre} </option>
-                            {/foreach}
-                        </select>
-                        <input type="submit" value="Ver ficha del Área">
-                    </form> *}
-                </div>
+                    <div>
+                        <h3>Usuarios</h3>
+                    </div>
+                </a>
             </div>
+            {/if}
         </section>
 
 
