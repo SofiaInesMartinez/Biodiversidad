@@ -3,7 +3,6 @@ require_once "Controllers/ProtectedAreasController.php";
 require_once "Controllers/SpeciesController.php";
 require_once "Controllers/HomeController.php";
 require_once "Controllers/UserController.php";
-require_once "Controllers/ApicommentsController.php";
 
 
 
@@ -22,7 +21,6 @@ $protectedAreasController = new ProtectedAreasController();
 $speciesController = new SpeciesController();
 $homeController = new HomeController();
 $userController = new UserController();
-$commentsController = new ApiCommentsController();
 
 switch ($params[0]) {
     case 'login':
