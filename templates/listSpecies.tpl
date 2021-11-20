@@ -37,6 +37,8 @@
         {/for}
     </div>
 
+    {include file="templates/searchForm.tpl"}
+
     <section {if $user['rol'] != "adm"} class="hide" {/if}>
         <h2>Acceso administador - Alta</h2>
         <div class="formHome">

@@ -26,6 +26,40 @@ class SpeciesModel
         return $species;
     }
 
+
+    function getSpeciesBySearch($nombre_cientifico, $nombre_comun, $estado_conservacion)
+    {
+        if ($nombre_cientifico != '')
+            $n_cientifico = "%$nombre_cientifico%";
+        else
+            $n_cientifico = '%';
+        if ($nombre_comun != '')
+            $n_comun = "%$nombre_comun%";
+        else
+            $n_comun = '%';
+        if ($estado_conservacion != '')
+            $est_cons = $estado_conservacion;
+        else
+            $est_cons = '%';
+
+        $query = $this->db->prepare("SELECT a.*, b.nombre FROM especie a LEFT JOIN parquenacional b
+        ON a.id_parque = b.id_PN WHERE nombre_cientifico LIKE ? AND nombre_comun LIKE ? AND estado_conservacion LIKE ?");
+        var_dump($n_cientifico);
+        var_dump($n_comun);
+        var_dump($est_cons);
+        $query->execute([$n_cientifico, $n_comun, $est_cons]);
+        $species = $query->fetchAll(PDO::FETCH_OBJ);
+        return $species;
+    }
+
+    function getConservationStates()
+    {
+        $query = $this->db->prepare('SELECT DISTINCT estado_conservacion FROM especie ORDER BY estado_conservacion');
+        $query->execute([]);
+        $states = $query->fetchAll(PDO::FETCH_COLUMN);
+        return $states;
+    }
+
     function getSingleSpecies($id_especie)
     {
         $query = $this->db->prepare('SELECT a.*, b.nombre FROM especie a LEFT JOIN parquenacional b

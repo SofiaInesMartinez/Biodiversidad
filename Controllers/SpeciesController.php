@@ -19,6 +19,27 @@ class SpeciesController
         $this->modelArea = new ProtectedAreasModel();
     }
 
+
+    public function searchSpecies($params = null)
+    {
+        if (isset($_GET['nombre_cientifico']) && ($_GET['nombre_cientifico'] != '')) {
+            $nombre_cientifico = $_GET['nombre_cientifico'];
+        } else
+            $nombre_cientifico = '';
+        if (isset($_GET['nombre_comun']) && ($_GET['nombre_comun'] != '')) {
+            $nombre_comun = $_GET['nombre_comun'];
+        } else
+            $nombre_comun = '';
+        if (isset($_GET['estado_conservacion']) && ($_GET['estado_conservacion'] != '')) {
+            $estado_conservacion = $_GET['estado_conservacion'];
+        } else
+            $estado_conservacion = '';
+        $species = $this->model->getSpeciesBySearch($nombre_cientifico, $nombre_comun, $estado_conservacion);
+        $estados = $this->model->getConservationStates();
+        return $this->view->renderFilteredSpecies($species, $estados);
+    }
+
+
     function showPaginationSpecies()
     {
         $results_per_page = 10; //variable de cant de resultados deseados por pagina (limite)
@@ -33,7 +54,8 @@ class SpeciesController
         $species = $this->model->getSpeciesByLimit($this_page_first_result, $results_per_page);
         $areas = $this->modelArea->getProtectedAreas();
         $user = $this->authHelper->checkClearence();
-        $this->view->renderSpecies($species, $areas, $number_of_pages, $user);
+        $estados = $this->model->getConservationStates();
+        $this->view->renderSpecies($species, $areas, $estados, $number_of_pages, $user);
     }
 
     function deleteSpecies($id)

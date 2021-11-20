@@ -95,6 +95,9 @@ switch ($params[0]) {
     case 'updateAreaDB':
         $protectedAreasController->updateArea();
         break;
+    case 'searchSpecies':
+        $speciesController->searchSpecies();
+        break;
     default:
         $homeController->renderError();
         break;

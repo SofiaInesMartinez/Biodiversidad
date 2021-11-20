@@ -8,14 +8,20 @@ class SpeciesView
         $this->smarty = new Smarty();
     }
 
-    function renderSpecies($species, $areas, $maxPages, $user) {
+    function renderSpecies($species, $areas, $estados, $maxPages, $user) {
         $this->smarty->assign('especies', $species);
         $this->smarty->assign('areas', $areas);
+        $this->smarty->assign('estados', $estados);
         $this->smarty->assign('maxPages', $maxPages);
         $this->smarty->assign('user', $user);
         $this->smarty->display('templates/listSpecies.tpl');
     }
 
+    function renderFilteredSpecies($species, $estados){
+        $this->smarty->assign('especies', $species);
+        $this->smarty->assign('estados', $estados);
+        $this->smarty->display('templates/searchSpecies.tpl');
+    }
 
     function renderSingleSpecies($species){
         session_start();

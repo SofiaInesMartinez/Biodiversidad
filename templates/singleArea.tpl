@@ -24,7 +24,7 @@
     <section id="commentsForm" data-user="{$user['rol']}" {if ($user['rol'] == "")} class="hide" {/if}>
         <h2>Dejanos tu comentario </h2>
         <div class="formHome">
-            <form class="form" id="API_comment" action="addComment" method="POST">
+            <form class="form" id="API_comment">
                 <label>¿Visitaste el parque? Queremos conocer tu opinión. </label>
                 <textarea name="comment" required></textarea>
                 <label for="score">Calificá el parque</label>
