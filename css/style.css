@@ -103,6 +103,7 @@ table th,
 table td {
     padding: 1em 0.5em;
     position: relative;
+    text-align: center;
 }
 
 table th {

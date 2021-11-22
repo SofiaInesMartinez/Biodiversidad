@@ -44,9 +44,6 @@ class SpeciesModel
 
         $query = $this->db->prepare("SELECT a.*, b.nombre FROM especie a LEFT JOIN parquenacional b
         ON a.id_parque = b.id_PN WHERE nombre_cientifico LIKE ? AND nombre_comun LIKE ? AND estado_conservacion LIKE ?");
-        var_dump($n_cientifico);
-        var_dump($n_comun);
-        var_dump($est_cons);
         $query->execute([$n_cientifico, $n_comun, $est_cons]);
         $species = $query->fetchAll(PDO::FETCH_OBJ);
         return $species;

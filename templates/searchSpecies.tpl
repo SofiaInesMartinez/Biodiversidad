@@ -10,7 +10,6 @@
                 <th>Nombre común</th>
                 <th>Estado de conservación</th>
                 <th>Área protegida</th>
-                <th> </th>
             </tr>
             <thead>
             <tbody>

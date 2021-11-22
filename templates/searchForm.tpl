@@ -7,7 +7,9 @@
         <select name="estado_conservacion">
             <option selected disabled>Estado de conservación</option>
             {foreach from=$estados item=$estado}
-                <option value="{$estado}"> {$estado} </option>
+                {if $estado != ""}
+                    <option value="{$estado}"> {$estado} </option>
+                {/if}
             {/foreach}
         </select>
         <input type="submit" value="Buscar">
