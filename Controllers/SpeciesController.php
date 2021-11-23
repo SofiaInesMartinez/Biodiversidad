@@ -125,7 +125,7 @@ class SpeciesController
         if (
             isset($_POST['nombre_cientifico']) && isset($_POST['nombre_comun']) && isset($_POST['descripcion'])
             && isset($_POST['estado_conservacion']) && isset($_POST['id_parque']) && ($_POST['nombre_cientifico'] != '')
-            && ($_POST['id_parque'] != '')
+            && ($_POST['nombre_comun'] != '') && ($_POST['descripcion'] != '') && ($_POST['estado_conservacion'] != '') && ($_POST['id_parque'] != '')
         ) {
             $nombre_cientifico = $_POST["nombre_cientifico"];
             $nombre_comun = $_POST["nombre_comun"];
