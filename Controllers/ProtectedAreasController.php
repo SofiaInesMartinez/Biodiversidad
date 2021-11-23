@@ -58,8 +58,11 @@ class ProtectedAreasController
             $ubicacion = $_POST["ubicacion"];
             $anio_creacion =  $_POST["anio_creacion"];
             $superficie = $_POST["superficie"];
-            $img = $_POST["img"];
-            $this->model->addArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img);
+            if($_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/png") {
+                $this->model->addArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $_FILES['img']['tmp_name']);
+            }
+            else
+                $this->model->addArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, null);
             header("Location: " . BASE_URL . "listaParques");
         }
         //$this->view->renderError("El área protegida ya existe"); //Si dejamos, hacer chequeo con getArea
@@ -102,9 +105,12 @@ class ProtectedAreasController
             $ubicacion = $_POST["ubicacion"];
             $anio_creacion = $_POST["anio_creacion"];
             $superficie = $_POST["superficie"];
-            $img = $_POST["img"];
             $id_PN = $_POST["id_PN"];
-            $this->model->updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img, $id_PN);
+            if($_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/png") {
+                $this->model->updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie,  $_FILES['img']['tmp_name'], $id_PN);
+            }
+            else
+                $this->model->updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, null, $id_PN);
             header("Location: " . BASE_URL . "listaParques");
         }
         //$this->renderError("El área protegida ya existe");//Si dejamos, hacer chequeo con getArea

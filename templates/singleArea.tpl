@@ -5,7 +5,9 @@
     <h1>{$area->nombre}</h1>
     <h2>Región: {$area->region}</h2>
     <figure class="area">
-        <img src="{$area->img}">
+        {if isset($area->img)}
+            <img src="{$area->img}">
+        {/if}
         <div>
             <p>Ubicación: {$area->ubicacion}</p>
             <p>Año de creación: {$area->anio_creacion}</p>

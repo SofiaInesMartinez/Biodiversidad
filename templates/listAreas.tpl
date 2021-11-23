@@ -40,13 +40,13 @@
     <h2>Acceso administador - Alta</h2>
     <div class="formHome">
         <img id="arbol1" src="images/arbol.png">
-        <form class="form" action="addArea" method="post">
+        <form class="form" action="addArea" method="post" enctype="multipart/form-data">
             <input name="nombre" type="text" placeholder="Nombre" required>
             <input name="region" type="text" placeholder="Región" required>
             <input name="ubicacion" type="text" placeholder="Ubicación" required>
             <input name="anio_creacion" type="number" placeholder="Año de creación" required>
             <input name="superficie" type="number" placeholder="Superficie (ha)" required>
-            <input name="img" type="text" placeholder="Enlace a imagen" required>
+            <input name="img" type="file" placeholder="Imagen">
             <input type="submit" value="Cargar">
         </form>
         <img id="arbol2" src="images/arbol.png">

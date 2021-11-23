@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2021 a las 04:44:01
+-- Tiempo de generación: 23-11-2021 a las 03:30:40
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -311,7 +311,7 @@ CREATE TABLE `parquenacional` (
   `ubicacion` varchar(30) NOT NULL,
   `anio_creacion` int(11) DEFAULT NULL,
   `superficie` int(11) DEFAULT NULL,
-  `img` text NOT NULL
+  `img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -327,7 +327,7 @@ INSERT INTO `parquenacional` (`id_PN`, `nombre`, `region`, `ubicacion`, `anio_cr
 (51, 'PN Los Alerces', 'PATAGONIA', 'Chubut', 1937, 259822, 'https://www.argentina.gob.ar/sites/default/files/emblema_-_pn_los_alerces.png'),
 (52, 'PN Los Arrayanes', 'PATAGONIA', 'Neuquen', 1971, 1796, 'https://www.argentina.gob.ar/sites/default/files/emblema_-_pn_los_arrayanes.png'),
 (53, 'PN Baritú', 'NOA', 'Salta', 1974, 72439, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_baritu.png'),
-(54, 'PN Bosques Petrificados de Jaramillo', 'PATAGONIA', 'Santa Cruz', 1954, 78543, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_bosques_petrificados_de_jaramillo.png'),
+(54, 'PN Bosques Petrificados de Jaramillo', 'PATAGONIA', 'Santa Cruz', 1954, 78543, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_bosques_petrificados_de_jaramil'),
 (55, 'Reserva Natural Educativa Colonia Benítez', 'NEA', 'Chaco', 1990, 8, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_rne_colonia_benitez.png'),
 (56, 'PN Los Cardones', 'NOA', 'Salta', 1996, 64117, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_los_cardones.png'),
 (57, 'PN Chaco', 'NEA', 'Chaco', 1954, 14981, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_chaco.png'),
@@ -360,7 +360,8 @@ INSERT INTO `parquenacional` (`id_PN`, `nombre`, `region`, `ubicacion`, `anio_cr
 (87, 'PN El Impenetrable', 'NEA', 'Chaco', 2014, 128000, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_el_impenetrable.png'),
 (88, 'PN Patagonia', 'PATAGONIA', 'Santa Cruz', 2015, 106424, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pimc_patagonia_austral.png'),
 (90, 'PN Iberá', 'NEA', 'Corrientes', 2018, 195094, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_ibera.png'),
-(91, 'PN Traslasierra', 'CENTRO', 'Cordoba', 2017, 44168, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_traslasierra.png');
+(91, 'PN Traslasierra', 'CENTRO', 'Cordoba', 2017, 44168, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_traslasierra.png'),
+(106, 'Prueba foto', 'A', 'Tandil', 2021, 12345, 'uploads/619c5222828ef.png');
 
 -- --------------------------------------------------------
 
@@ -387,7 +388,6 @@ INSERT INTO `usuario` (`id_usuario`, `rol`, `nombre`, `mail`, `clave`) VALUES
 (11, 'user', 'Violeta', 'viole@gmail.com', '$2y$10$CEL1TcQ1gOQgleNihV/EauXV.IDJXFttwyGu4r36E2TDwTFDxxjA.'),
 (12, 'adm', 'Sofia Martinez', 'sofim@gmail.com', '$2y$10$jJqA7PENDjdpOb9PXin5jOAOWtfECV9CzmeAiHUmDfAH/FTNKvoOO'),
 (16, 'user', 'José Luis', 'pumita@gmail.com', '$2y$10$tStUuU0/ox9jU4yriTAojO6Tx7i7smU.pQCZI2H/tJFBI9Uq66dbW'),
-(20, 'user', 'hola', 'hola@gmail.com', '$2y$10$hcadYtlYZC732iqlt6DBzOe.OKWSxEI4fO8wzqg6D5QnFtWM.mxWm'),
 (21, 'user', 'bautista', 'bauti@gmail.com', '$2y$10$TKUkSVTYmRByzdIONaAwd.DB1/dXOBt5uo4QMM.NKKOgHpg9bqYUC');
 
 --
@@ -437,13 +437,13 @@ ALTER TABLE `comentario`
 -- AUTO_INCREMENT de la tabla `especie`
 --
 ALTER TABLE `especie`
-  MODIFY `id_especie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `id_especie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=260;
 
 --
 -- AUTO_INCREMENT de la tabla `parquenacional`
 --
 ALTER TABLE `parquenacional`
-  MODIFY `id_PN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id_PN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

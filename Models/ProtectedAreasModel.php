@@ -46,15 +46,28 @@ class ProtectedAreasModel
         $sentencia->execute(array($id));
     }
 
-    function addArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img)
-    {
-        $sentencia = $this->db->prepare('INSERT INTO parquenacional(nombre, region, ubicacion, anio_creacion, superficie, img) VALUES(?, ?, ?, ?, ?, ?)');
-        $sentencia->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img));
+    private function uploadImage($image){
+        $target = 'uploads/' . uniqid() . "." . strtolower(pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION));
+        move_uploaded_file($image, $target);
+        return $target;
     }
 
-    function updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img, $id_PN)
+
+    function addArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img = null)
+    {   
+        $pathImg = null;
+        if ($img)
+            $pathImg = $this->uploadImage($img);
+        $sentencia = $this->db->prepare('INSERT INTO parquenacional(nombre, region, ubicacion, anio_creacion, superficie, img) VALUES(?, ?, ?, ?, ?, ?)');
+        $sentencia->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $pathImg));
+    }
+
+    function updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img = null, $id_PN)
     {
+        $pathImg = null;
+        if ($img)
+            $pathImg = $this->uploadImage($img);
         $sentencia = $this->db->prepare("UPDATE parquenacional SET nombre = ?, region = ?, ubicacion = ?, anio_creacion = ?, superficie = ?, img=? WHERE id_PN = ?");
-        $sentencia->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img, $id_PN));
+        $sentencia->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $pathImg, $id_PN));
     }
 }
