@@ -121,6 +121,7 @@ class ProtectedAreasController
     function updateArea()
     {
         $this->authHelper->checkLoggedIn();
+        var_dump($_FILES);
         if (
             isset($_POST['nombre']) && isset($_POST['region']) && isset($_POST['ubicacion'])
             && isset($_POST['anio_creacion']) && isset($_POST['superficie']) && ($_POST['nombre'] != '')

@@ -37,7 +37,7 @@ class ApiUsersController
             if ($user) {
                 $body = $this->getData();
                 $rol = $body->rol;
-                $user = $this->model->updateUser($user_id, $rol);
+                $this->model->updateUser($user_id, $rol);
                 $this->view->response("User id=$user_id actualizado con éxito", 200);
             } else
                 $this->view->response("User id=$user_id not found", 404);

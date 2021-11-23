@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2021 a las 19:36:20
+-- Tiempo de generación: 23-11-2021 a las 20:20:05
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -354,7 +354,7 @@ INSERT INTO `parquenacional` (`id_PN`, `nombre`, `region`, `ubicacion`, `anio_cr
 (79, 'PN Sierra de las Quijadas', 'CENTRO', 'San Luis', 1991, 73785, 'uploads/619d319509e1c.png'),
 (80, 'PN Talampaya', 'CENTRO', 'La Rioja', 1997, 213800, 'uploads/619d31a041b90.png'),
 (81, 'PN Tierra del Fuego', 'PATAGONIA', 'Tierra Del Fuego', 1960, 68909, 'uploads/619d32f3ce614.png'),
-(82, 'PN Campos del Tuyú', 'CENTRO', 'Buenos Aires', 2008, 3040, 'uploads/619d314c2d1c6.png'),
+(82, 'PN Campos del Tuyú', 'CENTRO', 'Buenos Aires', 2008, 3040, 'uploads/619d3dfe621526.43251759.png'),
 (84, 'PN Islas de Santa Fé', 'CENTRO', 'Santa Fe', 2010, 4096, 'uploads/619d3179a5411.png'),
 (86, 'Parque Interjurisdiccional Marino Isla Pingüino', 'PATAGONIA', 'Santa Cruz', 2012, 159526, 'uploads/619d32b1d325e.png'),
 (87, 'PN El Impenetrable', 'NEA', 'Chaco', 2014, 128000, 'uploads/619d31c5b17dc.png'),
@@ -383,7 +383,7 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `rol`, `nombre`, `mail`, `clave`) VALUES
 (1, 'adm', 'Augusto Rodríguez', 'augusto@gmail.com', '$2y$10$lEVo2Hxb2T.AKXtoVkY7bu5BZurZadhoqzmZvwJqQbEk4S.Lzl8h.'),
 (5, 'user', 'Santiago Rodríguez', 'santiago@gmail.com', '$2y$10$wqwObz4w3VoxA3t0p6097.BgqX.sdvdZhsKM5UJRW82jh8EwWea2u'),
-(11, 'user', 'Violeta', 'viole@gmail.com', '$2y$10$CEL1TcQ1gOQgleNihV/EauXV.IDJXFttwyGu4r36E2TDwTFDxxjA.'),
+(11, 'adm', 'Violeta', 'viole@gmail.com', '$2y$10$CEL1TcQ1gOQgleNihV/EauXV.IDJXFttwyGu4r36E2TDwTFDxxjA.'),
 (12, 'adm', 'Sofia Martinez', 'sofim@gmail.com', '$2y$10$jJqA7PENDjdpOb9PXin5jOAOWtfECV9CzmeAiHUmDfAH/FTNKvoOO'),
 (16, 'user', 'José Luis', 'pumita@gmail.com', '$2y$10$tStUuU0/ox9jU4yriTAojO6Tx7i7smU.pQCZI2H/tJFBI9Uq66dbW'),
 (21, 'user', 'bautista', 'bauti@gmail.com', '$2y$10$TKUkSVTYmRByzdIONaAwd.DB1/dXOBt5uo4QMM.NKKOgHpg9bqYUC');

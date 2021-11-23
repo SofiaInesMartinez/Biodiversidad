@@ -42,13 +42,13 @@ class ProtectedAreasModel
 
     function deleteArea($id)
     {
-        $sentencia = $this->db->prepare("DELETE FROM parquenacional WHERE id_PN = ?");
-        $sentencia->execute(array($id));
+        $query = $this->db->prepare("DELETE FROM parquenacional WHERE id_PN = ?");
+        $query->execute(array($id));
     }
 
     private function uploadImage($image)
     {
-        $target = 'uploads/' . uniqid() . "." . strtolower(pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION));
+        $target = 'uploads/' . uniqid("", true) . "." . strtolower(pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION));
         move_uploaded_file($image, $target);
         return $target;
     }
@@ -59,8 +59,8 @@ class ProtectedAreasModel
         $pathImg = null;
         if ($img)
             $pathImg = $this->uploadImage($img);
-        $sentencia = $this->db->prepare('INSERT INTO parquenacional(nombre, region, ubicacion, anio_creacion, superficie, img) VALUES(?, ?, ?, ?, ?, ?)');
-        $sentencia->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $pathImg));
+        $query = $this->db->prepare('INSERT INTO parquenacional(nombre, region, ubicacion, anio_creacion, superficie, img) VALUES(?, ?, ?, ?, ?, ?)');
+        $query->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $pathImg));
     }
 
     function updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img = null, $id_PN)
@@ -68,7 +68,7 @@ class ProtectedAreasModel
         $pathImg = null;
         if ($img)
             $pathImg = $this->uploadImage($img);
-        $sentencia = $this->db->prepare("UPDATE parquenacional SET nombre = ?, region = ?, ubicacion = ?, anio_creacion = ?, superficie = ?, img=? WHERE id_PN = ?");
-        $sentencia->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $pathImg, $id_PN));
+        $query = $this->db->prepare("UPDATE parquenacional SET nombre = ?, region = ?, ubicacion = ?, anio_creacion = ?, superficie = ?, img=? WHERE id_PN = ?");
+        $query->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $pathImg, $id_PN));
     }
 }
