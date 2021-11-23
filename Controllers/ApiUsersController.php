@@ -1,17 +1,20 @@
 <?php
 require_once './Models/UsersModel.php';
 require_once './Views/APIView.php';
+require_once './Models/CommentsModel.php';
 
 class ApiUsersController
 {
     private $view;
     private $model;
     private $data;
+    private $commentsModel;
 
     public function __construct()
     {
         $this->view = new APIView();
         $this->model = new UsersModel();
+        $this->commentsModel = new CommentsModel();
         $this->data = file_get_contents("php://input");
     }
 
@@ -48,6 +51,7 @@ class ApiUsersController
             $user_id = $params[':ID'];
             $user = $this->model->getUserByID($user_id);
             if ($user) {
+                $this->commentsModel->deleteCommentsByUser($user_id);
                 $this->model->deleteUser($user_id);
                 $this->view->response("User id=$user_id eliminado con éxito", 200);
             } else

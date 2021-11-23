@@ -38,7 +38,17 @@ class CommentsModel
     {
         $query = $this->db->prepare('DELETE FROM comentario WHERE id_comment = ?');
         $query->execute([$id]);
-        $comment = $query->fetch(PDO::FETCH_OBJ);
-        return $comment;
+    }
+
+    public function deleteCommentsByUser($user_id)
+    {
+        $query = $this->db->prepare('DELETE FROM comentario WHERE id_usuario = ?');
+        $query->execute([$user_id]);
+    }
+
+    public function deleteCommentsByArea($id_PN)
+    {
+        $query = $this->db->prepare('DELETE FROM comentario WHERE id_PN = ?');
+        $query->execute([$id_PN]);
     }
 }

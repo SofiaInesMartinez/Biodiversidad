@@ -3,6 +3,7 @@ require_once './Models/ProtectedAreasModel.php';
 require_once './Views/ProtectedAreasView.php';
 require_once './Models/SpeciesModel.php';
 require_once './Helpers/AuthHelper.php';
+require_once './Models/CommentsModel.php';
 
 class ProtectedAreasController
 {
@@ -10,6 +11,7 @@ class ProtectedAreasController
     private $view;
     private $authHelper;
     private $speciesModel;
+    private $commentsModel;
 
     public function __construct()
     {
@@ -17,6 +19,7 @@ class ProtectedAreasController
         $this->view = new ProtectedAreasView();
         $this->authHelper = new AuthHelper();
         $this->speciesModel = new SpeciesModel();
+        $this->commentsModel = new CommentsModel();
     }
 
     function showPaginationAreas()
@@ -41,8 +44,14 @@ class ProtectedAreasController
         if (isset($id) && $id != '') {
             $area = $this->model->getSingleProtectedArea($id);
             if ($area) {
-                $this->model->deleteArea($id);
-                header("Location: " . BASE_URL . "listaParques");
+                $species = $this->speciesModel->getSpeciesbyProtectedArea($id);
+                if (count($species) > 0) {
+                    $this->view->renderError("El área id=$id no puede eliminarse porque tiene especies declaradas");
+                } else {
+                    $this->commentsModel->deleteCommentsByArea($id);
+                    $this->model->deleteArea($id);
+                    header("Location: " . BASE_URL . "listaParques");
+                }
             } else
                 $this->view->renderError("El área id=$id no existe");
         } else
