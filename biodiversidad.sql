@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2021 a las 14:58:49
+-- Tiempo de generación: 23-11-2021 a las 19:36:20
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -66,7 +66,7 @@ INSERT INTO `comentario` (`id_comment`, `comment`, `score`, `id_PN`, `id_usuario
 (39, 'jkhgjkllkhkj', 4, 82, 11),
 (40, 'yuurytutryuytr', 4, 69, 12),
 (41, 'gfxhgfjhgdj', 5, 82, 12),
-(42, 'ukiljklkjhlkj', 5, 109, 12);
+(43, 'uyiuyoiuoiuy', 4, 80, 11);
 
 -- --------------------------------------------------------
 
@@ -320,51 +320,47 @@ CREATE TABLE `parquenacional` (
 --
 
 INSERT INTO `parquenacional` (`id_PN`, `nombre`, `region`, `ubicacion`, `anio_creacion`, `superficie`, `img`) VALUES
-(1, 'PN Lanín', 'PATAGONIA', 'Neuquén', 1937, 412000, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_lanin.png'),
-(2, 'PN Iguazú', 'NEA', 'Misiones', 1934, 67670, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_iguazu.png'),
-(3, 'PN Calilegua', 'NOA', 'Jujuy', 1979, 76603, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_calilegua.png'),
-(4, 'PN Nahuel Huapi', 'PATAGONIA', 'Río Negro', 1934, 717261, 'https://www.argentina.gob.ar/sites/default/files/emblema_-_pn_nahuel_huapi.png'),
-(50, 'PN Aconquija', 'NOA', 'Tucuman', 2018, 76207, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_aconquija.png'),
-(51, 'PN Los Alerces', 'PATAGONIA', 'Chubut', 1937, 259822, 'https://www.argentina.gob.ar/sites/default/files/emblema_-_pn_los_alerces.png'),
-(52, 'PN Los Arrayanes', 'PATAGONIA', 'Neuquen', 1971, 1796, 'https://www.argentina.gob.ar/sites/default/files/emblema_-_pn_los_arrayanes.png'),
-(53, 'PN Baritú', 'NOA', 'Salta', 1974, 72439, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_baritu.png'),
-(54, 'PN Bosques Petrificados de Jaramillo', 'PATAGONIA', 'Santa Cruz', 1954, 78543, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_bosques_petrificados_de_jaramil'),
-(55, 'Reserva Natural Educativa Colonia Benítez', 'NEA', 'Chaco', 1990, 8, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_rne_colonia_benitez.png'),
-(56, 'PN Los Cardones', 'NOA', 'Salta', 1996, 64117, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_los_cardones.png'),
-(57, 'PN Chaco', 'NEA', 'Chaco', 1954, 14981, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_chaco.png'),
-(58, 'PN Quebrada del Condorito', 'CENTRO', 'Cordoba', 1996, 35396, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_quebrada_del_condorito.png'),
-(59, 'PN Copo', 'NOA', 'Santiago Del Estero', 2000, 118119, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_copo.png'),
-(60, 'Reserva Natural Formosa', 'NOA', 'Formosa', 1968, 9005, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_rn_formosa.png'),
-(62, 'Reserva Nacional Pizarro', 'NOA', 'Salta', 2015, 7837, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_rn_pizarro.png'),
-(63, 'PN Laguna Blanca', 'PATAGONIA', 'Neuquen', 1940, 11250, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_laguna_blanca.png'),
-(64, 'PN Lihué Calel', 'PATAGONIA', 'La Pampa', 1976, 32514, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_lihue_calel.png'),
-(65, 'PN El Leoncito', 'CENTRO', 'San Juan', 2002, 89706, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_el_leoncito.png'),
-(66, 'PN Mburucuyá', 'NEA', 'Corrientes', 2002, 17086, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_mburucuya.png'),
-(67, 'PN Monte León', 'PATAGONIA', 'Santa Cruz', 2004, 62169, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_monte_leon.png'),
-(68, 'Reserva Nacional El Nogalar de los Toldos', 'NOA', 'Salta', 2006, 3275, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_rn_el_nogalar_de_los_toldos.png'),
-(69, 'PN Ciervo de los Pantanos', 'CENTRO', 'Buenos Aires', 2018, 5200, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_ciervo_de_los_pantanos.png'),
-(70, 'PN El Palmar', 'CENTRO', 'Entre Rios', 1965, 8213, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_el_palmar.png'),
-(72, 'PN Río Pilcomayo', 'NEA', 'Formosa', 1951, 51889, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_rio_pilcomayo.png'),
-(73, 'PN Perito Moreno', 'PATAGONIA', 'Santa Cruz', 1937, 142120, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_perito_moreno.png'),
-(74, 'Monumento Natural Laguna de los Pozuelos', 'NOA', 'Jujuy', 1980, 16000, 'https://www.argentina.gob.ar/sites/default/files/emblema_ficha_-_mn_laguna_de_los_pozuelos.png'),
-(75, 'PN Lago Puelo', 'PATAGONIA', 'Chubut', 1937, 27674, 'https://www.argentina.gob.ar/sites/default/files/emblema_-_pn_lago_puelo_0.png'),
-(76, 'PN El Rey', 'NOA', 'Salta', 1948, 44162, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_el_rey.png'),
-(77, 'Reserva Natural Estricta San Antonio', 'NEA', 'Misiones', 1990, 480, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_rne_san_antonio.png'),
-(78, 'PN San Guillermo', 'CENTRO', 'San Juan', 1999, 166000, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_san_guillermo.png'),
-(79, 'PN Sierra de las Quijadas', 'CENTRO', 'San Luis', 1991, 73785, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_sierra_de_las_quijadas.png'),
-(80, 'PN Talampaya', 'CENTRO', 'La Rioja', 1997, 213800, 'https://www.argentina.gob.ar/sites/default/files/pn_talampaya_-_emblema_fichas.png'),
-(81, 'PN Tierra del Fuego', 'PATAGONIA', 'Tierra Del Fuego', 1960, 68909, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_tierra_del_fuego.png'),
-(82, 'PN Campos del Tuyú', 'CENTRO', 'Buenos Aires', 2008, 3040, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_campos_del_tuyu.png'),
-(84, 'PN Islas de Santa Fé', 'CENTRO', 'Santa Fe', 2010, 4096, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_islas_de_santa_fe.png'),
-(85, 'Parque Interjurisdiccional Marino Makenke', 'PATAGONIA', 'Santa Cruz', 2012, 72663, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pim_makenke.png'),
-(86, 'Parque Interjurisdiccional Marino Isla Pingüino', 'PATAGONIA', 'Santa Cruz', 2012, 159526, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pim_isla_pinguino.png'),
-(87, 'PN El Impenetrable', 'NEA', 'Chaco', 2014, 128000, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_el_impenetrable.png'),
-(88, 'PN Patagonia', 'PATAGONIA', 'Santa Cruz', 2015, 106424, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pimc_patagonia_austral.png'),
-(90, 'PN Iberá', 'NEA', 'Corrientes', 2018, 195094, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_ibera.png'),
-(91, 'PN Traslasierra', 'CENTRO', 'Cordoba', 2017, 44168, 'https://www.argentina.gob.ar/sites/default/files/emblema_fichas_-_pn_traslasierra.png'),
-(106, 'Prueba foto', 'A', 'Tandil', 2021, 12345, 'uploads/619c5222828ef.png'),
-(108, 'Prueba1', 'A', 'fsafdds', 2021, 4464, 'uploads/619cef4b56334.jpg'),
-(109, 'Otra prueba imagen', 'A', 'fgsfd', 4242, 24253, 'uploads/619ceff9798e8.jpeg');
+(1, 'PN Lanín', 'PATAGONIA', 'Neuquén', 1937, 412000, 'uploads/619d3372354a7.png'),
+(2, 'PN Iguazú', 'NEA', 'Misiones', 1934, 67670, 'uploads/619d31dcc238c.png'),
+(3, 'PN Calilegua', 'NOA', 'Jujuy', 1979, 76603, 'uploads/619d32597ba50.png'),
+(4, 'PN Nahuel Huapi', 'PATAGONIA', 'Río Negro', 1934, 717261, 'uploads/619d33aecfe25.png'),
+(50, 'PN Aconquija', 'NOA', 'Tucuman', 2018, 76207, 'uploads/619d322c7023f.png'),
+(51, 'PN Los Alerces', 'PATAGONIA', 'Chubut', 1937, 259822, 'uploads/619d3389591b5.png'),
+(52, 'PN Los Arrayanes', 'PATAGONIA', 'Neuquen', 1971, 1796, 'uploads/619d3399d3f3a.png'),
+(53, 'PN Baritú', 'NOA', 'Salta', 1974, 72439, 'uploads/619d323596a05.png'),
+(54, 'PN Bosques Petrificados de Jaramillo', 'PATAGONIA', 'Santa Cruz', 1954, 78543, 'uploads/619d34349c23f.png'),
+(55, 'Reserva Natural Educativa Colonia Benítez', 'NEA', 'Chaco', 1990, 8, 'uploads/619d320510421.png'),
+(56, 'PN Los Cardones', 'NOA', 'Salta', 1996, 64117, 'uploads/619d327c0c760.png'),
+(57, 'PN Chaco', 'NEA', 'Chaco', 1954, 14981, 'uploads/619d31b67d7fb.png'),
+(58, 'PN Quebrada del Condorito', 'CENTRO', 'Cordoba', 1996, 35396, 'uploads/619d31814077a.png'),
+(59, 'PN Copo', 'NOA', 'Santiago Del Estero', 2000, 118119, 'uploads/619d32657281a.png'),
+(60, 'Reserva Natural Formosa', 'NOA', 'Formosa', 1968, 9005, 'uploads/619d32a3be923.png'),
+(62, 'Reserva Nacional Pizarro', 'NOA', 'Salta', 2015, 7837, 'uploads/619d3297eaea0.png'),
+(63, 'PN Laguna Blanca', 'PATAGONIA', 'Neuquen', 1940, 11250, 'uploads/619d3368b3d44.png'),
+(64, 'PN Lihué Calel', 'PATAGONIA', 'La Pampa', 1976, 32514, 'uploads/619d337d5bb1e.png'),
+(65, 'PN El Leoncito', 'CENTRO', 'San Juan', 2002, 89706, 'uploads/619d324a96195.png'),
+(66, 'PN Mburucuyá', 'NEA', 'Corrientes', 2002, 17086, 'uploads/619d31ecb1b8f.png'),
+(67, 'PN Monte León', 'PATAGONIA', 'Santa Cruz', 2004, 62169, 'uploads/619d33a499688.png'),
+(68, 'Reserva Nacional El Nogalar de los Toldos', 'NOA', 'Salta', 2006, 3275, 'uploads/619d328b96ca6.png'),
+(69, 'PN Ciervo de los Pantanos', 'CENTRO', 'Buenos Aires', 2018, 5200, 'uploads/619d323d9aff6.png'),
+(70, 'PN El Palmar', 'CENTRO', 'Entre Rios', 1965, 8213, 'uploads/619d317016428.png'),
+(72, 'PN Río Pilcomayo', 'NEA', 'Formosa', 1951, 51889, 'uploads/619d31f842bf1.png'),
+(73, 'PN Perito Moreno', 'PATAGONIA', 'Santa Cruz', 1937, 142120, 'uploads/619d33c73f2a4.png'),
+(74, 'Monumento Natural Laguna de los Pozuelos', 'NOA', 'Jujuy', 1980, 16000, 'uploads/619d321cca184.png'),
+(75, 'PN Lago Puelo', 'PATAGONIA', 'Chubut', 1937, 27674, 'uploads/619d335da8284.png'),
+(76, 'PN El Rey', 'NOA', 'Salta', 1948, 44162, 'uploads/619d327145a0a.png'),
+(77, 'Reserva Natural Estricta San Antonio', 'NEA', 'Misiones', 1990, 480, 'uploads/619d32108fed8.png'),
+(78, 'PN San Guillermo', 'CENTRO', 'San Juan', 1999, 166000, 'uploads/619d318b308b5.png'),
+(79, 'PN Sierra de las Quijadas', 'CENTRO', 'San Luis', 1991, 73785, 'uploads/619d319509e1c.png'),
+(80, 'PN Talampaya', 'CENTRO', 'La Rioja', 1997, 213800, 'uploads/619d31a041b90.png'),
+(81, 'PN Tierra del Fuego', 'PATAGONIA', 'Tierra Del Fuego', 1960, 68909, 'uploads/619d32f3ce614.png'),
+(82, 'PN Campos del Tuyú', 'CENTRO', 'Buenos Aires', 2008, 3040, 'uploads/619d314c2d1c6.png'),
+(84, 'PN Islas de Santa Fé', 'CENTRO', 'Santa Fe', 2010, 4096, 'uploads/619d3179a5411.png'),
+(86, 'Parque Interjurisdiccional Marino Isla Pingüino', 'PATAGONIA', 'Santa Cruz', 2012, 159526, 'uploads/619d32b1d325e.png'),
+(87, 'PN El Impenetrable', 'NEA', 'Chaco', 2014, 128000, 'uploads/619d31c5b17dc.png'),
+(88, 'PN Patagonia', 'PATAGONIA', 'Santa Cruz', 2015, 106424, 'uploads/619d33ba6f8ff.png'),
+(90, 'PN Iberá', 'NEA', 'Corrientes', 2018, 195094, 'uploads/619d31d0cbdd1.png'),
+(91, 'PN Traslasierra', 'CENTRO', 'Cordoba', 2017, 44168, 'uploads/619d31aa549b2.png');
 
 -- --------------------------------------------------------
 
@@ -387,7 +383,6 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `rol`, `nombre`, `mail`, `clave`) VALUES
 (1, 'adm', 'Augusto Rodríguez', 'augusto@gmail.com', '$2y$10$lEVo2Hxb2T.AKXtoVkY7bu5BZurZadhoqzmZvwJqQbEk4S.Lzl8h.'),
 (5, 'user', 'Santiago Rodríguez', 'santiago@gmail.com', '$2y$10$wqwObz4w3VoxA3t0p6097.BgqX.sdvdZhsKM5UJRW82jh8EwWea2u'),
-(6, 'user', 'Marta Lopez', 'marta@gmail.com', '$2y$10$uRq/L4hUrGByGSI264iFY.S.ltjSnwXpOtwxoThT8DircPwCucPz2'),
 (11, 'user', 'Violeta', 'viole@gmail.com', '$2y$10$CEL1TcQ1gOQgleNihV/EauXV.IDJXFttwyGu4r36E2TDwTFDxxjA.'),
 (12, 'adm', 'Sofia Martinez', 'sofim@gmail.com', '$2y$10$jJqA7PENDjdpOb9PXin5jOAOWtfECV9CzmeAiHUmDfAH/FTNKvoOO'),
 (16, 'user', 'José Luis', 'pumita@gmail.com', '$2y$10$tStUuU0/ox9jU4yriTAojO6Tx7i7smU.pQCZI2H/tJFBI9Uq66dbW'),
@@ -434,7 +429,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `especie`
