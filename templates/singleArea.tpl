@@ -18,6 +18,22 @@
         </div>
     </figure>
 
+    <section {if ($user['rol'] == "")} class="hide" {/if}>
+        <h2>Filtrar comentarios </h2>
+        <div class="formHome">
+            <form class="form" id="scoreForm">
+                <div class="radio-toolbar">
+                    <div><label>Malo</label><input type="radio" name="score" value="1" required></div>
+                    <div><label>Regular</label><input type="radio" name="score" value="2"></div>
+                    <div><label>Bueno</label><input type="radio" name="score" value="3"></div>
+                    <div><label>Muy bueno</label><input type="radio" name="score" value="4"></div>
+                    <div><label>Excelente</label><input type="radio" name="score" value="5"></div>
+                </div>
+                <input type="submit" value="Filtrar" id="btn-filtro">
+            </form>
+        </div>
+    </section>
+
     <section id="comments-list">
         {include file='templates/vue/commentsList.tpl'}
     </section>

@@ -27,6 +27,14 @@ class ApiCommentsController
         return $this->view->response($comments, 200);
     }
 
+    public function getCommentsByScore($params = null)
+    {
+        $id_PN = $params[':ID_PN'];
+        $score = $params[':SCORE'];
+        $comments = $this->model->getCommentsbyScore($id_PN, $score);
+        return $this->view->response($comments, 200);
+    }
+
     public function addComment($params = null)
     {
         $data = $this->getData();
