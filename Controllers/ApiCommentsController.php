@@ -30,7 +30,10 @@ class ApiCommentsController
     public function addComment($params = null)
     {
         $data = $this->getData();
-        if (isset($data->comment) && isset($data->score) && isset($data->id_usuario) && isset($data->id_PN)) {
+        if (
+            isset($data->comment) && isset($data->score) && isset($data->id_usuario)
+            && isset($data->id_PN) && $data->comment != '' && $data->score != '' && $data->id_usuario != ''
+        ) {
             $score = intval($data->score);
             $id_usuario = intval($data->id_usuario);
             $id_PN = intval($data->id_PN);

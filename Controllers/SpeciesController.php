@@ -61,8 +61,15 @@ class SpeciesController
     function deleteSpecies($id)
     {
         $this->authHelper->checkLoggedIn();
-        $this->model->deleteSpecies($id);
-        header("Location: " . BASE_URL . "listaEspecies");
+        if (isset($id) && $id != '') {
+            $specie = $this->model->getSingleSpecies($id);
+            if ($specie) {
+                $this->model->deleteSpecies($id);
+                header("Location: " . BASE_URL . "listaEspecies");
+            } else
+                $this->view->renderError("La especie id=$id no existe");
+        } else
+            $this->view->renderError("Faltan datos");
     }
 
     function addSpecies()
@@ -82,23 +89,34 @@ class SpeciesController
             $img = $_POST["img"];
             $this->model->addSpecies($nombre_cientifico, $nombre_comun, $descripcion,  $estado_conservacion, $id_parque, $img);
             header("Location: " . BASE_URL . "listaEspecies");
-        }
-        //$this->view->renderError("La especie ya existe"); //Para este control dijo que es mejor un get especie
-
+        } else
+            $this->view->renderError("Faltan datos para crear la especie");
     }
 
     function showSingleSpecies($id)
     {
-        $specie = $this->model->getSingleSpecies($id);
-        $this->view->renderSingleSpecies($specie);
+        if (isset($id) && $id != '') {
+            $specie = $this->model->getSingleSpecies($id);
+            if ($specie)
+                $this->view->renderSingleSpecies($specie);
+            else
+                $this->view->renderError("La especie id=$id no existe");
+        } else
+            $this->view->renderError("Faltan datos");
     }
 
     function getSingleSpecies($id)
     {
         $this->authHelper->checkLoggedIn();
-        $specie = $this->model->getSingleSpecies($id);
-        $areas = $this->modelArea->getProtectedAreas();
-        $this->view->getSingleSpecies($specie, $areas);
+        if (isset($id) && $id != '') {
+            $specie = $this->model->getSingleSpecies($id);
+            if ($specie) {
+                $areas = $this->modelArea->getProtectedAreas();
+                $this->view->getSingleSpecies($specie, $areas);
+            } else
+                $this->view->renderError("La especie id=$id no existe");
+        } else
+            $this->view->renderError("Faltan datos");
     }
 
     function updateSpecies()

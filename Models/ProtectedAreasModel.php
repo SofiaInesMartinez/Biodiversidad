@@ -6,8 +6,8 @@ class ProtectedAreasModel
     function __construct()
     {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=biodiversidad;charset=utf8', 'root', '');
-        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
+    
     function getTotal()
     {
         $query = $this->db->prepare('SELECT COUNT(*) FROM parquenacional');
@@ -15,7 +15,7 @@ class ProtectedAreasModel
         $count = $query->fetchColumn();
         return $count;
     }
-    
+
     function getAreasByLimit($this_page_first_result, $results_per_page)
     {
         $query = $this->db->prepare("SELECT * FROM parquenacional ORDER BY region, nombre
@@ -46,7 +46,8 @@ class ProtectedAreasModel
         $sentencia->execute(array($id));
     }
 
-    private function uploadImage($image){
+    private function uploadImage($image)
+    {
         $target = 'uploads/' . uniqid() . "." . strtolower(pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION));
         move_uploaded_file($image, $target);
         return $target;
@@ -54,7 +55,7 @@ class ProtectedAreasModel
 
 
     function addArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img = null)
-    {   
+    {
         $pathImg = null;
         if ($img)
             $pathImg = $this->uploadImage($img);

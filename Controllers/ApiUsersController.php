@@ -26,29 +26,33 @@ class ApiUsersController
         return $this->view->response($users, 200);
     }
 
-    public function updateUser($params = null) {
-        $user_id = $params[':ID'];
-        $user = $this->model->getUserByID($user_id);
-
-        if ($user) {
-            $body = $this->getData();
-            $rol = $body->rol;
-            $user = $this->model->updateUser($user_id, $rol);
-            $this->view->response("User id=$user_id actualizado con éxito", 200);
-        }
-        else 
-            $this->view->response("User id=$user_id not found", 404);
+    public function updateUser($params = null)
+    {
+        if (isset($params[':ID']) && $params[':ID'] != '') {
+            $user_id = $params[':ID'];
+            $user = $this->model->getUserByID($user_id);
+            if ($user) {
+                $body = $this->getData();
+                $rol = $body->rol;
+                $user = $this->model->updateUser($user_id, $rol);
+                $this->view->response("User id=$user_id actualizado con éxito", 200);
+            } else
+                $this->view->response("User id=$user_id not found", 404);
+        } else
+            $this->view->response("Faltan datos", 200);
     }
 
-    public function deleteUser($params = null) {
-        $user_id = $params[':ID'];
-        $user = $this->model->getUserByID($user_id);
-
-        if ($user) {
-            $this->model->deleteUser($user_id);
-            $this->view->response("User id=$user_id eliminado con éxito", 200);
-        }
-        else 
-            $this->view->response("User id=$user_id not found", 404);
+    public function deleteUser($params = null)
+    {
+        if (isset($params[':ID']) && $params[':ID'] != '') {
+            $user_id = $params[':ID'];
+            $user = $this->model->getUserByID($user_id);
+            if ($user) {
+                $this->model->deleteUser($user_id);
+                $this->view->response("User id=$user_id eliminado con éxito", 200);
+            } else
+                $this->view->response("User id=$user_id not found", 404);
+        } else
+            $this->view->response("Faltan datos", 200);
     }
 }
