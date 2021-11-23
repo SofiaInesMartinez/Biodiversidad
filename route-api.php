@@ -8,6 +8,7 @@ $router = new Router();
 $router->addRoute(':ID_PN/comentarios', 'GET', 'ApiCommentsController', 'getComments');
 $router->addRoute(':ID_PN/comentarios', 'POST', 'ApiCommentsController', 'addComment');
 $router->addRoute(':ID_PN/comentarios/:ID', 'DELETE', 'ApiCommentsController', 'deleteComment');
+$router->addRoute(':ID_PN/comentarios/:SCORE', 'GET', 'ApiCommentsController', 'getCommentsByScore');
 
 $router->addRoute('usuario', 'GET', 'ApiUsersController', 'getUsers');
 $router->addRoute('usuario/:ID', 'PUT', 'ApiUsersController', 'updateUser');

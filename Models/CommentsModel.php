@@ -19,6 +19,15 @@ class CommentsModel
         return $comments;
     }
 
+    public function getCommentsbyScore($id_PN, $score)
+    {
+        $query = $this->db->prepare("SELECT a.*, b.nombre FROM comentario a LEFT JOIN usuario b
+        ON a.id_usuario = b.id_usuario WHERE id_PN = ? AND score = ?");
+        $query->execute([$id_PN, $score]);
+        $comments = $query->fetchAll(PDO::FETCH_OBJ);
+        return $comments;
+    }
+
     public function addComment($comment, $score, $id_PN, $user)
     {
         $query = $this->db->prepare("INSERT INTO comentario(comment, score, id_PN, id_usuario) VALUES(?,?,?,?)");

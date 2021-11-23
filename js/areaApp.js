@@ -1,15 +1,23 @@
 "use strict"
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     let idPN = document.getElementById("id_PN").value;
     let url = `api/${idPN}/comentarios`;
 
     let formComment = document.querySelector("#API_comment");
-    formComment.addEventListener("submit", function (e) {
+    formComment.addEventListener("submit", function(e) {
+        e.preventDefault();
+    });
+
+    let scoreForm = document.querySelector("#scoreForm");
+    scoreForm.addEventListener("submit", function(e) {
         e.preventDefault();
     });
 
     let btnAdd = document.querySelector("#btn-add");
     btnAdd.addEventListener("click", addComment);
+
+    let btnFiltro = document.querySelector("#btn-filtro");
+    btnFiltro.addEventListener("click", getCommentsByScore);
 
 
     let app1 = new Vue({
@@ -20,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             user: ""
         },
         methods: {
-            eliminar: function (event) {
+            eliminar: function(event) {
                 deleteComment(event.target.id)
             }
         }
@@ -35,6 +43,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         try {
             let response = await fetch(url);
+            let comments = await response.json();
+            app1.comments = comments;
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    function getScore() {
+        let formData = new FormData(scoreForm);
+        let score = formData.get("score");
+        return score;
+    }
+    async function getCommentsByScore() {
+        let score = getScore();
+        try {
+            let response = await fetch(`${url}/${score}`);
             let comments = await response.json();
             app1.comments = comments;
         } catch (e) {
