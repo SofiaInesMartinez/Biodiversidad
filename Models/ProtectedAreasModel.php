@@ -7,7 +7,7 @@ class ProtectedAreasModel
     {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=biodiversidad;charset=utf8', 'root', '');
     }
-    
+
     function getTotal()
     {
         $query = $this->db->prepare('SELECT COUNT(*) FROM parquenacional');
@@ -67,5 +67,14 @@ class ProtectedAreasModel
     {
         $query = $this->db->prepare("UPDATE parquenacional SET nombre = ?, region = ?, ubicacion = ?, anio_creacion = ?, superficie = ? WHERE id_PN = ?");
         $query->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $id_PN));
+    }
+
+    function updateImgArea($img = null, $id_PN)
+    {
+        $pathImg = null;
+        if ($img)
+            $pathImg = $this->uploadImage($img);
+        $query = $this->db->prepare('UPDATE parquenacional SET img = ? WHERE id_PN = ?');
+        $query->execute(array($pathImg, $id_PN));
     }
 }

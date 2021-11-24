@@ -121,12 +121,11 @@ class ProtectedAreasController
     function updateArea()
     {
         $this->authHelper->checkLoggedIn();
-        var_dump($_FILES);
         if (
             isset($_POST['nombre']) && isset($_POST['region']) && isset($_POST['ubicacion'])
-            && isset($_POST['anio_creacion']) && isset($_POST['superficie']) && ($_POST['nombre'] != '')
+            && isset($_POST['anio_creacion']) && isset($_POST['superficie']) && isset($_POST['id_PN']) && ($_POST['nombre'] != '')
             && ($_POST['region'] != '') && ($_POST['ubicacion'] != '') && ($_POST['anio_creacion'] != '')
-            && ($_POST['superficie'] != '')
+            && ($_POST['superficie'] != '' && ($_POST['id_PN'] != ''))
         ) {
             $nombre = $_POST["nombre"];
             $region = $_POST["region"];
@@ -135,6 +134,20 @@ class ProtectedAreasController
             $superficie = $_POST["superficie"];
             $id_PN = $_POST["id_PN"];
             $this->model->updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $id_PN);
+            header("Location: " . BASE_URL . "listaParques");
+        } else
+            $this->view->renderError("Faltan datos");
+    }
+
+    function updateImgArea()
+    {
+        $this->authHelper->checkLoggedIn();
+        if (($_POST['id_PN'] != '' && $_POST['id_PN'] != '')) {
+            $id_PN = $_POST["id_PN"];
+            if ($_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/png") {
+                $this->model->updateImgArea($_FILES['img']['tmp_name'], $id_PN);
+            } else
+                $this->model->updateImgArea(null, $id_PN);
             header("Location: " . BASE_URL . "listaParques");
         } else
             $this->view->renderError("Faltan datos");

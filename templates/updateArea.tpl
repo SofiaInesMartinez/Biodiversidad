@@ -3,7 +3,7 @@
 <section>
     <h2>Acceso administador - Modificación</h2>
     <div class="formHome">
-        <form class="form" action="updateAreaDB" method="post" enctype="multipart/form-data">
+        <form class="form" action="updateAreaDB" method="post">
             <input name="id_PN" type="number" value="{$areas->id_PN}" hidden>
             <input name="nombre" type="text" placeholder="Nombre" value="{$areas->nombre}">
             <input name="region" type="text" placeholder="Region" value="{$areas->region}">
@@ -11,6 +11,13 @@
             <input name="anio_creacion" type="number" placeholder="Año de creación" value="{$areas->anio_creacion}">
             <input name="superficie" type="number" placeholder="Superficie (ha)" value="{$areas->superficie}">
             <input type="submit" value="Actualizar">
+        </form>
+    </div>
+    <div class="formHome">
+        <form class="form" action="updateImgAreaDB" method="post" enctype="multipart/form-data">
+            <input name="id_PN" type="number" value="{$areas->id_PN}" hidden>
+            <input name="img" type="file" placeholder="Imagen">
+            <input type="submit" value="Cambiar imagen/Eliminar actual">
         </form>
     </div>
 </section>
