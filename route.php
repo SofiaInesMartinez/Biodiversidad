@@ -83,6 +83,9 @@ switch ($params[0]) {
     case 'updateAreaDB':
         $protectedAreasController->updateArea();
         break;
+    case 'updateImgAreaDB':
+        $protectedAreasController->updateImgArea();
+        break;
     case 'searchSpecies':
         $speciesController->searchSpecies();
         break;
