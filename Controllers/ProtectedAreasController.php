@@ -34,7 +34,7 @@ class ProtectedAreasController
         }
         $this_page_first_result = ($page - 1) * $results_per_page;
         $areas = $this->model->getAreasByLimit($this_page_first_result, $results_per_page);
-        $user = $this->authHelper->checkClearence();
+        $user = $this->authHelper->checkUser();
         $this->view->renderAreas($areas, $number_of_pages, $user);
     }
 
@@ -83,7 +83,7 @@ class ProtectedAreasController
 
     function showSingleArea($id_PN)
     {
-        $user = $this->authHelper->checkClearence();
+        $user = $this->authHelper->checkUser();
         if (isset($id_PN) && ($id_PN != '')) {
             $area = $this->model->getSingleProtectedArea($id_PN);
             if ($area)

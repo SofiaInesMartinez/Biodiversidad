@@ -32,7 +32,7 @@ class AuthHelper
         }
     }
 
-    function checkClearence()
+    function checkUser()
     {
         session_start();
         if (isset($_SESSION['ID'])&&isset($_SESSION['ROL'])) {

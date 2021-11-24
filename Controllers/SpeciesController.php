@@ -53,7 +53,7 @@ class SpeciesController
         $this_page_first_result = ($page - 1) * $results_per_page; //obtiene inicio de la porcion de la tabla requerida
         $species = $this->model->getSpeciesByLimit($this_page_first_result, $results_per_page);
         $areas = $this->modelArea->getProtectedAreas();
-        $user = $this->authHelper->checkClearence();
+        $user = $this->authHelper->checkUser();
         $estados = $this->model->getConservationStates();
         $this->view->renderSpecies($species, $areas, $estados, $number_of_pages, $user);
     }
