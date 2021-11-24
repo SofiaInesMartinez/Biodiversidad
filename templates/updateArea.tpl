@@ -10,7 +10,6 @@
             <input name="ubicacion" type="text" placeholder="Ubicacion" value="{$areas->ubicacion}">
             <input name="anio_creacion" type="number" placeholder="Año de creación" value="{$areas->anio_creacion}">
             <input name="superficie" type="number" placeholder="Superficie (ha)" value="{$areas->superficie}">
-            <input name="img" type="file">
             <input type="submit" value="Actualizar">
         </form>
     </div>

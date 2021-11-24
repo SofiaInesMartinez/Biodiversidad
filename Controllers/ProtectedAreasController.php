@@ -134,10 +134,7 @@ class ProtectedAreasController
             $anio_creacion = $_POST["anio_creacion"];
             $superficie = $_POST["superficie"];
             $id_PN = $_POST["id_PN"];
-            if ($_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/png") {
-                $this->model->updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie,  $_FILES['img']['tmp_name'], $id_PN);
-            } else
-                $this->model->updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, null, $id_PN);
+            $this->model->updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $id_PN);
             header("Location: " . BASE_URL . "listaParques");
         } else
             $this->view->renderError("Faltan datos");

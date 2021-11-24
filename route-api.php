@@ -15,6 +15,3 @@ $router->addRoute('usuario/:ID', 'PUT', 'ApiUsersController', 'updateUser');
 $router->addRoute('usuario/:ID', 'DELETE', 'ApiUsersController', 'deleteUser');
 
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);
-
-
-

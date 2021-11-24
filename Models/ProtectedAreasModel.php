@@ -63,12 +63,9 @@ class ProtectedAreasModel
         $query->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $pathImg));
     }
 
-    function updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $img = null, $id_PN)
+    function updateArea($nombre, $region, $ubicacion, $anio_creacion, $superficie, $id_PN)
     {
-        $pathImg = null;
-        if ($img)
-            $pathImg = $this->uploadImage($img);
-        $query = $this->db->prepare("UPDATE parquenacional SET nombre = ?, region = ?, ubicacion = ?, anio_creacion = ?, superficie = ?, img=? WHERE id_PN = ?");
-        $query->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $pathImg, $id_PN));
+        $query = $this->db->prepare("UPDATE parquenacional SET nombre = ?, region = ?, ubicacion = ?, anio_creacion = ?, superficie = ? WHERE id_PN = ?");
+        $query->execute(array($nombre, $region, $ubicacion, $anio_creacion, $superficie, $id_PN));
     }
 }
