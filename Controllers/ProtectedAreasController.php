@@ -40,7 +40,7 @@ class ProtectedAreasController
 
     function deleteArea($id)
     {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkRol();
         if (isset($id) && $id != '') {
             $area = $this->model->getSingleProtectedArea($id);
             if ($area) {
@@ -60,7 +60,7 @@ class ProtectedAreasController
 
     function addArea()
     {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkRol();
         if (
             isset($_POST['nombre']) && isset($_POST['region']) && isset($_POST['ubicacion'])
             && isset($_POST['anio_creacion']) && isset($_POST['superficie']) && ($_POST['nombre'] != '')
@@ -107,7 +107,7 @@ class ProtectedAreasController
 
     function getSingleArea($id)
     {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkRol();
         if (isset($id) && $id != '') {
             $area = $this->model->getSingleProtectedArea($id);
             if ($area)
@@ -120,7 +120,7 @@ class ProtectedAreasController
 
     function updateArea()
     {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkRol();
         if (
             isset($_POST['nombre']) && isset($_POST['region']) && isset($_POST['ubicacion'])
             && isset($_POST['anio_creacion']) && isset($_POST['superficie']) && isset($_POST['id_PN']) && ($_POST['nombre'] != '')
@@ -141,7 +141,7 @@ class ProtectedAreasController
 
     function updateImgArea()
     {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkRol();
         if (($_POST['id_PN'] != '' && $_POST['id_PN'] != '')) {
             $id_PN = $_POST["id_PN"];
             if ($_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/png") {

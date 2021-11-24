@@ -30,18 +30,15 @@ class UserController
 
     function showUsers()
     {
-        $this->authHelper->checkLoggedIn();
-        if ($_SESSION['ROL'] == 'adm') {
-            $users = $this->model->getUsers();
-            $this->view->showUsers($users);
-        } else {
-            $this->view->showLogin("Necesita permiso de administrador.");
-        }
+        $this->authHelper->checkRol();
+        $users = $this->model->getUsers();
+        $this->view->showUsers($users);
     }
 
     public function updateUserRol()
     {
-        if (isset($_POST['id']) && isset($_POST['rol']) && ($_POST['id'] != '')&& ($_POST['rol'] != '') ) {
+        $this->authHelper->checkRol();
+        if (isset($_POST['id']) && isset($_POST['rol']) && ($_POST['id'] != '') && ($_POST['rol'] != '')) {
             $id = $_POST["id"];
             $rol = $_POST["rol"];
             $user = $this->model->getUserById($id);
@@ -50,12 +47,13 @@ class UserController
                 header("Location: " . BASE_URL . "usuarios");
             } else
                 $this->view->renderError("El usuario id=$id no existe.");
-        } else 
+        } else
             $this->view->renderError("El usuario no fue actualizado.");
     }
 
     public function deleteUser($id)
     {
+        $this->authHelper->checkRol();
         if (isset($id) && $id != '') {
             $user = $this->model->getUserById($id);
             if ($user) {

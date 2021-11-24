@@ -60,7 +60,7 @@ class SpeciesController
 
     function deleteSpecies($id)
     {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkRol();
         if (isset($id) && $id != '') {
             $specie = $this->model->getSingleSpecies($id);
             if ($specie) {
@@ -74,7 +74,7 @@ class SpeciesController
 
     function addSpecies()
     {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkRol();
         if (
             isset($_POST['nombre_cientifico']) && isset($_POST['nombre_comun']) && isset($_POST['descripcion'])
             && isset($_POST['estado_conservacion']) && isset($_POST['id_parque']) && ($_POST['nombre_cientifico'] != '')
@@ -107,7 +107,7 @@ class SpeciesController
 
     function getSingleSpecies($id)
     {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkRol();
         if (isset($id) && $id != '') {
             $specie = $this->model->getSingleSpecies($id);
             if ($specie) {
@@ -121,7 +121,7 @@ class SpeciesController
 
     function updateSpecies()
     {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkRol();
         if (
             isset($_POST['nombre_cientifico']) && isset($_POST['nombre_comun']) && isset($_POST['descripcion'])
             && isset($_POST['estado_conservacion']) && isset($_POST['id_parque']) && ($_POST['nombre_cientifico'] != '')

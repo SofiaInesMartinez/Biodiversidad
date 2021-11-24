@@ -23,10 +23,10 @@ class AuthHelper
         header("Location: " . BASE_URL . "home");
     }
 
-    function checkLoggedIn()
+    function checkRol()
     {
         session_start();
-        if (!isset($_SESSION['NOMBRE'])) {
+        if (!isset($_SESSION['ROL'])||$_SESSION['ROL']!='adm') {
             header("Location: " . BASE_URL . "login");
             die();
         }
