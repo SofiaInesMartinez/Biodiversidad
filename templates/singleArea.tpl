@@ -18,7 +18,7 @@
         </div>
     </figure>
 
-    <section {if ($user['rol'] == "")} class="hide" {/if}>
+    <section>
         <h2>Filtrar comentarios </h2>
         <div class="formHome">
             <form class="form" id="scoreForm">
