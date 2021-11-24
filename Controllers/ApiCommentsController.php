@@ -22,17 +22,23 @@ class ApiCommentsController
 
     public function getComments($params = null)
     {
-        $id_PN = $params[':ID_PN'];
-        $comments = $this->model->getCommentsbyArea($id_PN);
-        return $this->view->response($comments, 200);
+        if (isset($params[':ID_PN']) && $params[':ID_PN'] != '') {
+            $id_PN = $params[':ID_PN'];
+            $comments = $this->model->getCommentsbyArea($id_PN);
+            return $this->view->response($comments, 200);
+        } else
+            $this->view->response("Faltan datos", 200);
     }
 
     public function getCommentsByScore($params = null)
     {
-        $id_PN = $params[':ID_PN'];
-        $score = $params[':SCORE'];
-        $comments = $this->model->getCommentsbyScore($id_PN, $score);
-        return $this->view->response($comments, 200);
+        if (isset($params[':ID_PN']) && $params[':ID_PN'] != '' && isset($params[':SCORE']) && $params[':SCORE'] != '') {
+            $id_PN = $params[':ID_PN'];
+            $score = $params[':SCORE'];
+            $comments = $this->model->getCommentsbyScore($id_PN, $score);
+            return $this->view->response($comments, 200);
+        } else
+            $this->view->response("Faltan datos", 200);
     }
 
     public function addComment($params = null)
@@ -57,12 +63,15 @@ class ApiCommentsController
 
     public function deleteComment($params = null)
     {
-        $id = $params[':ID'];
-        $comment = $this->model->getComment($id);
-        if ($comment) {
-            $comment = $this->model->deleteComment($id);
-            return $this->view->response("Comentario id=$id eliminado con éxito", 200);
+        if (isset($params[':ID']) && $params[':ID'] != '') {
+            $id = $params[':ID'];
+            $comment = $this->model->getComment($id);
+            if ($comment) {
+                $comment = $this->model->deleteComment($id);
+                return $this->view->response("Comentario id=$id eliminado con éxito", 200);
+            } else
+                return $this->view->response("El comentario id= $id no existe", 200);
         } else
-            return $this->view->response("El comentario id= $id no existe", 200);
+            $this->view->response("Faltan datos", 200);
     }
 }
