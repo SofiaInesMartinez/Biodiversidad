@@ -49,9 +49,9 @@ class UserController
                 $this->model->updateUserRol($id, $rol);
                 header("Location: " . BASE_URL . "usuarios");
             } else
-                $this->view->renderError("El usuario id=$id no existe");
+                $this->view->renderError("El usuario id=$id no existe.");
         } else 
-            $this->view->renderError("El usuario no fue actualizado");
+            $this->view->renderError("El usuario no fue actualizado.");
     }
 
     public function deleteUser($id)
@@ -63,9 +63,9 @@ class UserController
                 $this->model->deleteUser($id);
                 header("Location: " . BASE_URL . "usuarios");
             } else
-                $this->view->renderError("El usuario id=$id no existe");
+                $this->view->renderError("El usuario id=$id no existe.");
         } else
-            $this->view->renderError("Faltan datos");
+            $this->view->renderError("Falta especificar usuario.");
     }
 
     function addUser()

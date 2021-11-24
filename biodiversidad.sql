@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2021 a las 20:20:05
+-- Tiempo de generación: 24-11-2021 a las 23:19:03
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -65,8 +65,8 @@ INSERT INTO `comentario` (`id_comment`, `comment`, `score`, `id_PN`, `id_usuario
 (37, 'jjuytjuytktiuy', 2, 84, 12),
 (39, 'jkhgjkllkhkj', 4, 82, 11),
 (40, 'yuurytutryuytr', 4, 69, 12),
-(41, 'gfxhgfjhgdj', 5, 82, 12),
-(43, 'uyiuyoiuoiuy', 4, 80, 11);
+(43, 'uyiuyoiuoiuy', 4, 80, 11),
+(44, 'jmopjpohkjpohggfj', 5, 91, 11);
 
 -- --------------------------------------------------------
 
@@ -94,9 +94,7 @@ INSERT INTO `especie` (`id_especie`, `nombre_cientifico`, `nombre_comun`, `descr
 (4, 'Merganetta armata', 'Pato de los torrentes', 'Se distribuye desde Venezuela hasta Tierra del Fuego y su hábitat está restringido y asociado exclusivamente a arroyos y ríos de montaña. Se alimenta de larvas de insectos acuáticos que captura bajo el agua. Nidifica en cavidades de árboles que crecen en las orillas o paredones.', 'Preocupación menor', 4, NULL),
 (5, 'Sapajus apella', 'Mono caí', 'Se caracteriza por presentar en el cuerpo un pelaje que varía de castaño claro a castaño oscuro o marrón a rojizo; en las extremidades y cola presenta una coloración que varía de marrón oscuro a negro, siendo estas últimas las partes más oscuras del cuerpo. En la frente presenta pelaje erecto semejando unos cachos de allí su nombre, el rostro puede presentar pelaje corto que se esparce sobre la piel negra. Es una especie relativamente grande, la longitud entre cabeza cuerpo está entre 35 y 49 cm, y posee una cola prensil de entre 38 y 49 cm, los machos pesan alrededor de 3,7 kg y las hembras 2,3 kg. Al igual que otros cebides habita en la selva húmeda tropical, se desplaza en árboles de gran altura y se caracterizan por presentar hábitos diurnos, ser activos e inquietos.', 'Preocupación menor', 2, NULL),
 (6, 'Sciurus ingrami', 'Ardilla serelepe', 'Es la única ardilla en su hábitat por lo cual no puede ser confundida en su ambiente natural. Es de coloración olivácea, con tonos blancuzco o blancuzco ahumado en las partes inferiores. Es un animal diurno, muy activo, solitario y territorial. Se alimenta principalmente de semillas y frutos, incluso con endocarpio lignificado como es el caso de las palmeras, guardando una estrecha relación con la pindó (Syagrus romanzoffiana), demostrando la especialización de esta ardilla en el consumo de frutos zoocóricos.', 'Datos insuficientes', 2, NULL),
-(7, 'Leopardus wiedii', 'Margay', 'Es muy similar al ocelote, con menor tamaño (entre 40 y 60 cm de cabeza y cuerpo) y un peso promedio de 3,5 kg. Ojos grandes y cola muy larga (puede medir más del 70% de la longitud de la cabeza y cuerpo). Estas son características de su adaptación para la vida arbórea.', 'Casi amenazado', 2, NULL),
-(8, 'Dromiciops gliroides', 'Monito de monte', 'Los monitos de monte son animales pequeños, de unos 20-25 cm desde el hocico hasta la cola, de los cuales entre 9 y 13 cm son de la cola. Pesan entre 20 y 42 gramos. Poseen hocico corto y ojos grandes y oscuros. El color del pelo es marrón a pardo grisáceo en el dorso y blanco o gris en el vientre, los hombros y las patas. Las hembras poseen un marsupio con cuatro mamas en su interior. La cola es prensil.\r\nEs un animal trepador y se lo encuentra activo por la noche y el crepúsculo, cuando se alimenta de insectos principalmente (insectívoro) aunque también consume frutos, semillas y hojas. Aunque se lo describe como solitario, duerme en grupos de 3 a 5 individuos, en huecos o matorrales. Las hembras tienen de una a cinco crías entre noviembre y marzo. El desarrollo ocurre dentro del marsupio, por lo cual sólo hasta cuatro crías son viables. Cuando abandonan el marsupio son llevadas por la madre en la espalda y duermen en un nido que hace la madre con hojas de la planta coligüe. Pueden llegar a hibernar en inviernos rigurosos.', NULL, 1, NULL),
-(9, 'Eugralla paradoxa', 'Churrín grande', 'Pequeña, mide 14,5 cm de longitud y pesa entre 25 y 30 g.​ Las patas son amarillas. El pico es robusto con el culmen abultado, de color negro. Por arriba es gris oscuro apizarrado; el lomo y las supracaudales con tonos café rufo con tintes amarillentos. Las alas del mismo tono del dorso. El pecho es gris apizarrado más claro que el dorso, especialmente hacia las partes centrales. Ábdomen, flancos y subcaudales rojizo claro con tinte amarillento hacia el ábdomen.8​ Los inmaduros son más pardos y escamados.', NULL, 1, NULL),
+(7, 'Leopardus wiedii', 'Margay', 'Es muy similar al ocelote, con menor tamaño (entre 40 y 60 cm de cabeza y cuerpo) y un peso promedio de 3,5 kg. Ojos grandes y cola muy larga (puede medir más del 70% de la longitud de la cabeza y cuerpo). Estas son características de su adaptación para la vida arbórea.', 'Casi amenazada', 2, NULL),
 (10, 'Trogon curucui', 'Surucuá aurora', 'Trogon pequeño de vientre rojo. El macho tiene la cabeza azul y un anillo ocular amarillo. La hembra tiene la cabeza gris y un anillo ocular blanco prominente. Se encuentra en una variedad de hábitats en el borde de bosques, desde várzea y bosque de llanuras aluviales hasta bordes de bosques jóvenes alrededor de áreas agrícolas. Particularmente común en áreas pantanosas en la parte occidental de su rango; en la parte oriental de su rango ocupa una variedad más amplia de hábitats, incluyendo el bosque semihúmedo. Escucha por una serie rápida y ligeramente en aceleración de notas \"pou\" a un ritmo de aproximadamente 5 notas por segundo.', 'Preocupación menor', 3, 'https://sib.gob.ar/api/2.0.0/resized?filename=20181109133938_Trogon_curucui_de_Lotfi_Si_Saber.jpg&size=700'),
 (11, 'Hippocamelus antisensis', 'Taruca', 'Es un mamífero en peligro de extinción perteneciente a la familia Cervidae, que habita las escarpas andinas, y sistemas orográficos próximos, en Sudamérica. Una especie estrechamente emparentada es el huemul del sur, con el cual tiene bastante similitud de aspecto (la taruca es más esbelta y de menor alzada). Taruca también es el nombre de la especie en lenguas aimara y quechua, y aunque no son lenguas relacionadas, en ambas significa venado. El nombre científico genérico significa \"caballo-camello\", porque al describirlo por primera vez se dudaba de su ubicación taxonómica.\r\nEs un ungulado de tamaño mediano y corpulento, de peso entre 45 y alrededor de 60 kg, altura a la cruz de 69 a 80 cm y 140 cm contando la cabeza y las astas, con los menores tamaños y pesos correspondientes a las hembras. El pelaje es de color general gris arena a marrón grisáceo y está compuesto de pelos huecos y gruesos, con pelos cobertores cercanos a la piel.​ La cara tiene marcas negras distintivas, que se diferencian entre individuos, y son más notorias y en forma de V o Y en machos.', 'Vulnerable', 3, NULL),
 (27, 'Sicalis flaveola', 'Saffron Finch, Tanagers, Perching Birds,', '', 'Datos insuficientes', 69, 'https://images.collections.yale.edu/iiif/2/ypm:c6ece5f4-e1eb-4909-8d97-d44e411d6eb1/full/full/0/default.jpg'),
@@ -354,7 +352,7 @@ INSERT INTO `parquenacional` (`id_PN`, `nombre`, `region`, `ubicacion`, `anio_cr
 (79, 'PN Sierra de las Quijadas', 'CENTRO', 'San Luis', 1991, 73785, 'uploads/619d319509e1c.png'),
 (80, 'PN Talampaya', 'CENTRO', 'La Rioja', 1997, 213800, 'uploads/619d31a041b90.png'),
 (81, 'PN Tierra del Fuego', 'PATAGONIA', 'Tierra Del Fuego', 1960, 68909, 'uploads/619d32f3ce614.png'),
-(82, 'PN Campos del Tuyú', 'CENTRO', 'Buenos Aires', 2008, 3040, 'uploads/619d3dfe621526.43251759.png'),
+(82, 'PN Campos del Tuyú', 'CENTRO', 'Buenos Aires', 2008, 3050, 'uploads/619eb4271f1458.69451784.png'),
 (84, 'PN Islas de Santa Fé', 'CENTRO', 'Santa Fe', 2010, 4096, 'uploads/619d3179a5411.png'),
 (86, 'Parque Interjurisdiccional Marino Isla Pingüino', 'PATAGONIA', 'Santa Cruz', 2012, 159526, 'uploads/619d32b1d325e.png'),
 (87, 'PN El Impenetrable', 'NEA', 'Chaco', 2014, 128000, 'uploads/619d31c5b17dc.png'),
@@ -383,7 +381,7 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `rol`, `nombre`, `mail`, `clave`) VALUES
 (1, 'adm', 'Augusto Rodríguez', 'augusto@gmail.com', '$2y$10$lEVo2Hxb2T.AKXtoVkY7bu5BZurZadhoqzmZvwJqQbEk4S.Lzl8h.'),
 (5, 'user', 'Santiago Rodríguez', 'santiago@gmail.com', '$2y$10$wqwObz4w3VoxA3t0p6097.BgqX.sdvdZhsKM5UJRW82jh8EwWea2u'),
-(11, 'adm', 'Violeta', 'viole@gmail.com', '$2y$10$CEL1TcQ1gOQgleNihV/EauXV.IDJXFttwyGu4r36E2TDwTFDxxjA.'),
+(11, 'user', 'Violeta', 'viole@gmail.com', '$2y$10$CEL1TcQ1gOQgleNihV/EauXV.IDJXFttwyGu4r36E2TDwTFDxxjA.'),
 (12, 'adm', 'Sofia Martinez', 'sofim@gmail.com', '$2y$10$jJqA7PENDjdpOb9PXin5jOAOWtfECV9CzmeAiHUmDfAH/FTNKvoOO'),
 (16, 'user', 'José Luis', 'pumita@gmail.com', '$2y$10$tStUuU0/ox9jU4yriTAojO6Tx7i7smU.pQCZI2H/tJFBI9Uq66dbW'),
 (21, 'user', 'bautista', 'bauti@gmail.com', '$2y$10$TKUkSVTYmRByzdIONaAwd.DB1/dXOBt5uo4QMM.NKKOgHpg9bqYUC');
@@ -429,7 +427,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `especie`
