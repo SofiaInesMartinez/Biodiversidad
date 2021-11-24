@@ -60,37 +60,25 @@ switch ($params[0]) {
         $protectedAreasController->showSingleArea($params[1]);
         break;
     case 'deleteSpecies':
-        if (isset($params[1]))
-            $speciesController->deleteSpecies($params[1]);
-        else
-            $speciesController->renderError('Falta especificar información');
+        $speciesController->deleteSpecies($params[1]);
         break;
     case 'addSpecies':
         $speciesController->addSpecies();
         break;
     case 'updateSpecies':
-        if (isset($params[1]))
-            $speciesController->getSingleSpecies($params[1]);
-        else
-            $speciesController->renderError('Falta especificar información');
+        $speciesController->getSingleSpecies($params[1]);
         break;
     case 'updateSpeciesDB':
         $speciesController->updateSpecies();
         break;
     case 'deleteArea':
-        if (isset($params[1]))
-            $protectedAreasController->deleteArea($params[1]);
-        else
-            $protectedAreasController->renderError('Falta especificar información');
+        $protectedAreasController->deleteArea($params[1]);
         break;
     case 'addArea':
         $protectedAreasController->addArea();
         break;
     case 'updateArea':
-        if (isset($params[1]))
-            $protectedAreasController->getSingleArea($params[1]);
-        else
-            $protectedAreasController->renderError('Falta especificar información');
+        $protectedAreasController->getSingleArea($params[1]);
         break;
     case 'updateAreaDB':
         $protectedAreasController->updateArea();

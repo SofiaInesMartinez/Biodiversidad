@@ -12,7 +12,7 @@ class UsersModel{
         $users = $query->fetchAll(PDO::FETCH_OBJ);
         return $users;
     }
-    function getUser($mail) {
+    function getUserByMail($mail) {
         $query = $this->db->prepare('SELECT * FROM usuario WHERE mail = ?');
         $query->execute([$mail]);
         $user = $query->fetch(PDO::FETCH_OBJ);

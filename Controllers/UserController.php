@@ -32,11 +32,11 @@ class UserController
             $name = $_POST['nombre'];
             $mail = $_POST['mail'];
             $pass = $_POST['contrasena'];
-            $user = $this->model->getUser($mail);
+            $user = $this->model->getUserByMail($mail);
             if (!$user) {
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
                 $this->model->addUser($name, $mail, $hash);
-                $user = $this->model->getUser($mail);
+                $user = $this->model->getUserByMail($mail);
                 $this->authHelper->login($user);
             } else {
                 $this->view->showSignup("El usuario ya existe.");
@@ -50,7 +50,7 @@ class UserController
         if (isset($_POST['mail']) && $_POST['mail'] != '' && isset($_POST['contrasena']) && $_POST['contrasena'] != '') {
             $mail = $_POST['mail'];
             $pass = $_POST['contrasena'];
-            $user = $this->model->getUser($mail);
+            $user = $this->model->getUserByMail($mail);
             if ($user != NULL) {
                 $hash = $user->clave;
                 if (password_verify($pass, $hash))

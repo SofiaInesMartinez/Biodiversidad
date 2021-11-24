@@ -30,6 +30,7 @@
                     <div><label>Excelente</label><input type="radio" name="score" value="5"></div>
                 </div>
                 <input type="submit" value="Filtrar" id="btn-filtro">
+                <input type="submit" value="Mostrar todos" id="btn-all">
             </form>
         </div>
     </section>

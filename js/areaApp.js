@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let btnFiltro = document.querySelector("#btn-filtro");
     btnFiltro.addEventListener("click", getCommentsByScore);
 
+    let btnAll = document.querySelector("#btn-all");
+    btnAll.addEventListener("click", getCommentsByArea);
+
 
     let app1 = new Vue({
         el: "#app1",
