@@ -22,8 +22,15 @@ class UsersView
         $this->smarty->display('templates/signUp.tpl');
     }
     
-    function showUsers()
+    function showUsers($users)
     {
+        $this->smarty->assign('users', $users);
         $this->smarty->display('templates/users.tpl');
+    }
+
+    function renderError($msg)
+    {
+        $this->smarty->assign('msg', $msg);
+        $this->smarty->display('templates/error.tpl');   
     }
 }

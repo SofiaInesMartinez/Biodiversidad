@@ -50,6 +50,12 @@ switch ($params[0]) {
     case 'usuarios':
         $userController->showUsers();
         break;
+    case 'deleteUser':
+        $userController->deleteUser($params[1]);
+        break;
+    case 'updateUser':
+        $userController->updateUserRol();
+        break;
     case 'especies':
         $speciesController->showSingleSpecies($params[1]);
         break;

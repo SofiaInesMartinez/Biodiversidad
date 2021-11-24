@@ -1,5 +1,6 @@
 <?php
 require_once './Models/UsersModel.php';
+require_once './Models/CommentsModel.php';
 require_once './Views/UsersView.php';
 require_once './Helpers/AuthHelper.php';
 
@@ -12,6 +13,7 @@ class UserController
     public function __construct()
     {
         $this->model = new UsersModel();
+        $this->commentsModel = new CommentsModel();
         $this->view = new UsersView();
         $this->authHelper = new AuthHelper();
     }
@@ -24,6 +26,46 @@ class UserController
     function showSignup()
     {
         $this->view->showSignup("");
+    }
+
+    function showUsers()
+    {
+        $this->authHelper->checkLoggedIn();
+        if ($_SESSION['ROL'] == 'adm') {
+            $users = $this->model->getUsers();
+            $this->view->showUsers($users);
+        } else {
+            $this->view->showLogin("Necesita permiso de administrador.");
+        }
+    }
+
+    public function updateUserRol()
+    {
+        if (isset($_POST['id']) && isset($_POST['rol']) && ($_POST['id'] != '')&& ($_POST['rol'] != '') ) {
+            $id = $_POST["id"];
+            $rol = $_POST["rol"];
+            $user = $this->model->getUserById($id);
+            if ($user) {
+                $this->model->updateUserRol($id, $rol);
+                header("Location: " . BASE_URL . "usuarios");
+            } else
+                $this->view->renderError("El usuario id=$id no existe");
+        } else 
+            $this->view->renderError("El usuario no fue actualizado");
+    }
+
+    public function deleteUser($id)
+    {
+        if (isset($id) && $id != '') {
+            $user = $this->model->getUserById($id);
+            if ($user) {
+                $this->commentsModel->deleteCommentsByUser($id);
+                $this->model->deleteUser($id);
+                header("Location: " . BASE_URL . "usuarios");
+            } else
+                $this->view->renderError("El usuario id=$id no existe");
+        } else
+            $this->view->renderError("Faltan datos");
     }
 
     function addUser()
@@ -61,16 +103,6 @@ class UserController
                 $this->view->showLogin("Ocurrió un error en el ingreso.");
         } else
             $this->view->showSignup("Por favor, complete todos los campos.");
-    }
-
-    function showUsers()
-    {
-        $this->authHelper->checkLoggedIn();
-        if ($_SESSION['ROL'] == 'adm') {
-            $this->view->showUsers();
-        } else {
-            $this->view->showLogin("Necesita permiso de administrador.");
-        }
     }
 
     function logout()

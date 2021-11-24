@@ -10,8 +10,4 @@ $router->addRoute(':ID_PN/comentarios', 'POST', 'ApiCommentsController', 'addCom
 $router->addRoute(':ID_PN/comentarios/:ID', 'DELETE', 'ApiCommentsController', 'deleteComment');
 $router->addRoute(':ID_PN/comentarios/:SCORE', 'GET', 'ApiCommentsController', 'getCommentsByScore');
 
-$router->addRoute('usuario', 'GET', 'ApiUsersController', 'getUsers');
-$router->addRoute('usuario/:ID', 'PUT', 'ApiUsersController', 'updateUser');
-$router->addRoute('usuario/:ID', 'DELETE', 'ApiUsersController', 'deleteUser');
-
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

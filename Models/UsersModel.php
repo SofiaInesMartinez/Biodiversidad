@@ -28,7 +28,7 @@ class UsersModel{
         $query = $this->db->prepare("INSERT INTO usuario(rol, nombre, mail, clave) VALUES(?, ?, ?, ?)");
         $query->execute(array("user", $name, $mail, $pass));
     }
-    function updateUser($id, $rol) {
+    function updateUserRol($id, $rol) {
         $query = $this->db->prepare("UPDATE usuario SET rol = ? WHERE id_usuario = $id");
         $query->execute(array($rol));
     }
