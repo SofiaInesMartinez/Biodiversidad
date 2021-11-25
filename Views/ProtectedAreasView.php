@@ -33,7 +33,6 @@ class ProtectedAreasView
 
     function renderSpeciesByProtectedArea($id_parque, $species, $nameArea)
     {
-        session_start();
         $this->smarty->assign('id_parque', $id_parque);
         $this->smarty->assign('species', $species);
         $this->smarty->assign('area', $nameArea);

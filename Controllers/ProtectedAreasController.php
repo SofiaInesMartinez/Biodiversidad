@@ -96,6 +96,7 @@ class ProtectedAreasController
 
     function showSpeciesbyProtectedArea($id_parque)
     {
+        session_start();
         if (isset($id_parque) && $id_parque != '') {
             $species = $this->speciesModel->getSpeciesbyProtectedArea($id_parque);
             $nombreParque = $this->model->getSingleProtectedArea($id_parque);

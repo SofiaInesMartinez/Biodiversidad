@@ -13,6 +13,7 @@ class HomeController
 
     function showHome()
     {
+        session_start();
         $this->view->showHome();
     }
 

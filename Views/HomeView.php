@@ -12,7 +12,6 @@ class HomeView
 
     function showHome()
     {
-        session_start();
         $this->smarty->display('templates/home.tpl');
     }
 

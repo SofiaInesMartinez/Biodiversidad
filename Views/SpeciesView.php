@@ -24,7 +24,6 @@ class SpeciesView
     }
 
     function renderSingleSpecies($species){
-        session_start();
         $this->smarty->assign('especies', $species);
         $this->smarty->display('templates/singleSpecie.tpl');
     }

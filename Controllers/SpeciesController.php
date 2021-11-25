@@ -95,6 +95,7 @@ class SpeciesController
 
     function showSingleSpecies($id)
     {
+        session_start();
         if (isset($id) && $id != '') {
             $specie = $this->model->getSingleSpecies($id);
             if ($specie)
