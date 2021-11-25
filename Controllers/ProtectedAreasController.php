@@ -100,7 +100,10 @@ class ProtectedAreasController
         if (isset($id_parque) && $id_parque != '') {
             $species = $this->speciesModel->getSpeciesbyProtectedArea($id_parque);
             $nombreParque = $this->model->getSingleProtectedArea($id_parque);
-            $this->view->renderSpeciesByProtectedArea($id_parque, $species, $nombreParque->nombre);
+            if ($nombreParque)
+                $this->view->renderSpeciesByProtectedArea($id_parque, $species, $nombreParque->nombre);
+            else
+                $this->view->renderError("El area id=$id_parque no existe");
         } else
             $this->view->renderError("Faltan datos");
     }
