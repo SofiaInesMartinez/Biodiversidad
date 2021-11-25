@@ -19,6 +19,7 @@ class HomeController
 
     function renderError()
     {
+        session_start();
         $this->view->renderError("404 Page not found");
     }
 }
